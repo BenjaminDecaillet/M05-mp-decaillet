@@ -5,5 +5,16 @@ Mini-project, as part of [module M05](https://moodle.fernuni.ch/course/view.php?
 Mind the [accompanying slides](https://docs.google.com/presentation/d/1K4tIIJnhCY4eQcIWi5A6ZEol2mN5A6Cau0tL68QcjHY/edit?usp=sharing) (_access restrictions may apply_)
 
 - [M05-mp-decaillet](#m05-mp-decaillet)
+  - [Usage](#usage)
+
+<!-- -------------------------------------------------- -->
+
+## Usage
+
+From command line, run:
+
+```bash
+python3 main.py
+```
 
 <!-- -------------------------------------------------- -->
