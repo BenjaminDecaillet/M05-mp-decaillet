@@ -8,6 +8,8 @@ Mind the [accompanying slides](https://docs.google.com/presentation/d/1K4tIIJnhC
   - [Quick Start](#quick-start)
   - [Installation](#installation)
     - [Setup virtual environment](#setup-virtual-environment)
+      - [OSX and Linux](#osx-and-linux)
+      - [Windows](#windows)
 
 <!-- -------------------------------------------------- -->
 
@@ -24,13 +26,33 @@ From command line:
 
 ### Setup virtual environment
 
-This README.md assumes a functional Python development environment, as described [here](https://docs.python.org/3/library/venv.html).
+This README.md assumes a functional Python development environment with:
 
-The project requires Python 3.11.1 (exact path to **python3.11** may vary; locate it with: `which python3.11`)
+- [virtual environments](https://docs.python.org/3/library/venv.html)
+- a virtualenv wrapper:
+  - **OSX and Linux**: use package [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
+  - **Windows**: use package [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/)
+
+The project requires **Python 3.11.1**.
+
+Create the virtualenv as follows:
+
+#### OSX and Linux
 
 ```bash
 rmvirtualenv m05-mp-decaillet
 mkvirtualenv m05-mp-decaillet --python=/usr/local/bin/python3.11 -r requirements.txt
 ```
 
+_NB: exact path to **python3.11** may vary; locate it with: `which python3.11`_
+
+#### Windows
+
+```cmd
+rmvirtualenv m05-mp-decaillet
+mkvirtualenv m05-mp-decaillet --python "%userProfile%\AppData\Local\Programs\Python\Python311\python.exe" -r requirements.txt
+```
+
+_NB: exact path to **python3.11** may vary; locate it with: `where python` (Windows CMD) or `get-command python` (Windows PowerShell)_
+  
 <!-- -------------------------------------------------- -->
