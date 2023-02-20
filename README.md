@@ -52,7 +52,7 @@ _NB: exact path to **python3.11** may vary; locate it with: `which python3.11`_
 
 ```cmd
 rmvirtualenv m05-mp-decaillet
-mkvirtualenv m05-mp-decaillet --python "%userprofile%\AppData\Local\Programs\Python\Python311\python.exe" -r requirements.txt  # TODO: benj, please check
+mkvirtualenv m05-mp-decaillet --python "C:\Users\%username%\AppData\Local\Programs\Python\Python311\python.exe" -r requirements.txt 
 ```
 
 _NB: exact path to **python3.11** may vary; locate it with: `where python` (Windows CMD) or `get-command python` (Windows PowerShell)_
