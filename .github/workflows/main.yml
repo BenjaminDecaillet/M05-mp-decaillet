@@ -2,7 +2,7 @@ name: main-ci-action
 
 on:
   push:
-    branches: ["**"]      
+    branches: ["**"]
   pull_request:
     branches: ["dev"]
 
@@ -21,6 +21,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Enforce linter rules
+        run: |
+          autopep8 --max-line-length=120 --recursive . -aaa --diff --exit-code
+          isort . --check-only
       - name: Run unit tests and coverage
         run: |
           coverage run --source=src -m unittest -v
