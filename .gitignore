@@ -1,4 +1,6 @@
-.vscode/
+.vscode/*
+!.vscode/cspell.json
+!.vscode/extensions.json
 
 __pycache__/
 *.py[cod]
