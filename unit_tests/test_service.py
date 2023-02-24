@@ -10,4 +10,4 @@ class TestService(unittest.TestCase):
         with unittest.mock.patch('builtins.print') as mock_print:
             service.run()
 
-        mock_print.assert_called_once_with('Hello from service.run()')
+        mock_print.assert_called_once_with('MAE: 42')

@@ -1,3 +1,10 @@
+import src.evaluator
+from src import *
+
+
 class Service:
     def run(self) -> None:
-        print("Hello from service.run()")
+        evaluator = Evaluator()
+        mae = evaluator.evaluate()
+
+        print(f"MAE: {mae}")
