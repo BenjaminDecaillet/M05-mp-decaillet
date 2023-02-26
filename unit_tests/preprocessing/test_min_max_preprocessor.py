@@ -11,7 +11,7 @@ class TestMinMaxPreprocessor(unittest.TestCase):
 
         with self.subTest("fit_transform"):
             training_features = pd.DataFrame(data={"feature 1": [1, 2, 3, 4, 5]}, index=range(5))
-            expected = pd.DataFrame(data={"feature 1": [0, 0.25, 0.5, 0.75, 1]}, index=range(5))
+            expected = pd.DataFrame(data={"feature 1 (scaled)": [0, 0.25, 0.5, 0.75, 1]}, index=range(5))
 
             actual = preprocessor.fit_transform(training_features)
 
@@ -19,7 +19,7 @@ class TestMinMaxPreprocessor(unittest.TestCase):
 
         with self.subTest("transform"):
             test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]}, index=range(3))
-            expected = pd.DataFrame(data={"feature 1": [-0.25, 0.5, 1]}, index=range(3))
+            expected = pd.DataFrame(data={"feature 1 (scaled)": [-0.25, 0.5, 1]}, index=range(3))
 
             actual = preprocessor.transform(test_features)
 
