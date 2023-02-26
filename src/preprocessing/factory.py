@@ -4,7 +4,7 @@ from src.preprocessing import Preprocessor
 
 class PreprocessorFactory:
     def __init__(self, type: str):
-        if type not in {"dummy", "min-max"}:
+        if type not in {"dummy", "min-max", "standard"}:
             raise ValueError(f"Unknown preprocessor type '{type}'")
         self._type = type
 
@@ -13,3 +13,5 @@ class PreprocessorFactory:
             return src.preprocessing.DummyPreprocessor()
         if self._type == "min-max":
             return src.preprocessing.MinMaxPreprocessor()
+        if self._type == "standard":
+            return src.preprocessing.StandardPreprocessor()
