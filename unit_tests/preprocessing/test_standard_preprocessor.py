@@ -11,7 +11,8 @@ class TestStandardPreprocessor(unittest.TestCase):
 
         with self.subTest("fit_transform"):
             training_features = pd.DataFrame(data={"feature 1": [1, 2, 3, 4, 5]}, index=range(5))
-            expected = pd.DataFrame(data={"feature 1": [-1.414213, -0.70711, 0.0, 0.70711, 1.41421]}, index=range(5))
+            expected = pd.DataFrame(data={"feature 1 (scaled)": [-1.41421, -0.70711, 0.0, 0.70711, 1.41421]},
+                                    index=range(5))
 
             actual = preprocessor.fit_transform(training_features)
 
@@ -19,7 +20,7 @@ class TestStandardPreprocessor(unittest.TestCase):
 
         with self.subTest("transform"):
             test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]}, index=range(3))
-            expected = pd.DataFrame(data={"feature 1": [-2.12132, 0.0, 1.41421]}, index=range(3))
+            expected = pd.DataFrame(data={"feature 1 (scaled)": [-2.12132, 0.0, 1.41421]}, index=range(3))
 
             actual = preprocessor.transform(test_features)
 

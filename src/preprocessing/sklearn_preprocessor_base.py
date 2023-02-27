@@ -19,7 +19,7 @@ class SkLearnPreprocessorBase(Preprocessor):
 
         return pd.DataFrame(data=scaled_features,
                             index=features.index,
-                            columns=self._columns)
+                            columns=self._get_scaled_columns_names())
 
     def transform(self, features: pd.DataFrame) -> pd.DataFrame:
         if self._scaler is None:
@@ -31,8 +31,11 @@ class SkLearnPreprocessorBase(Preprocessor):
 
         return pd.DataFrame(data=scaled_features,
                             index=features.index,
-                            columns=self._columns)
+                            columns=self._get_scaled_columns_names())
 
     @abc.abstractmethod
     def _get_scaler(self):
         raise NotImplementedError("override me")  # pragma: no cover
+
+    def _get_scaled_columns_names(self) -> list[str]:
+        return [f"{column} (scaled)" for column in self._columns]

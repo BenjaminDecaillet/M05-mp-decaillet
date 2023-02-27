@@ -3,4 +3,5 @@ from .sklearn_preprocessor_base import SkLearnPreprocessorBase  # isort: skip (i
 
 from .factory import PreprocessorFactory
 from .min_max_preprocessor import MinMaxPreprocessor
+from .polynomial_preprocessor import PolynomialPreprocessor
 from .standard_preprocessor import StandardPreprocessor
