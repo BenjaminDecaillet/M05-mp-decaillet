@@ -12,8 +12,8 @@ class Evaluator():
     def evaluate(self):
         self._prepare_data()
 
-        training_features = pd.DataFrame()
-        test_features = pd.DataFrame()
+        training_features = pd.DataFrame(data=[1], columns=["foo"])
+        test_features = pd.DataFrame(data=[2], columns=["foo"])
         _ = self._preprocessor.fit_transform(training_features)
         _ = self._preprocessor.transform(test_features)
 

@@ -11,6 +11,7 @@
         "mkvirtualenv",
         "rmvirtualenv",
         "sklearn",
+        "stopall",
         "virtualenv",
         "virtualenvwrapper",
         "workon"

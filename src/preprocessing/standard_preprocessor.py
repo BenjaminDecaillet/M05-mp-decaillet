@@ -3,6 +3,6 @@ from sklearn import preprocessing
 from src.preprocessing import SkLearnPreprocessorBase
 
 
-class MinMaxPreprocessor(SkLearnPreprocessorBase):
+class StandardPreprocessor(SkLearnPreprocessorBase):
     def _get_scaler(self):
-        return preprocessing.MinMaxScaler()
+        return preprocessing.StandardScaler()
