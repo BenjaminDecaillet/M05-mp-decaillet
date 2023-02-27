@@ -9,6 +9,7 @@
         "endregion",
         "isort",
         "mkvirtualenv",
+        "preprocessors",
         "rmvirtualenv",
         "sklearn",
         "stopall",
