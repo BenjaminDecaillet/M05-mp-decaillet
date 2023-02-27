@@ -84,7 +84,7 @@ The python code in this project must match [autopep8](https://pypi.org/project/a
 
 ### VS-code settings
 In VS-code, the linting  can be automated as follows:
-- Install extension [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- Install extension [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (which is a [recommended extensions](.vscode/extensions.json))
 - Edit your **User** Settings:
   - CMD + shift + P > "Preferences: Open User Settings (JSON)"
 - Append the following to you User Settings:

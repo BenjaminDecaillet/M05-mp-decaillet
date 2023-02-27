@@ -1,6 +1,6 @@
 import unittest.mock
 
-from src import *
+from src import Service
 
 
 class TestService(unittest.TestCase):

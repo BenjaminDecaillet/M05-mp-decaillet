@@ -1,0 +1,19 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "autopep",
+        "decaillet",
+        "endregion",
+        "isort",
+        "mkvirtualenv",
+        "rmvirtualenv",
+        "virtualenv",
+        "virtualenvwrapper",
+        "workon"
+    ],
+    "ignoreWords": [],
+    "import": []
+}

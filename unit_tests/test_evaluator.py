@@ -1,6 +1,6 @@
 import unittest
 
-from src import *
+from src import Evaluator
 
 
 class TestEvaluator(unittest.TestCase):
