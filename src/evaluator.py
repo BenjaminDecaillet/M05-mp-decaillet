@@ -1,11 +1,21 @@
+import pandas as pd
+
+from src.preprocessing import Preprocessor
+
+
 class Evaluator():
-    def __init__(self):
-        pass
+    def __init__(self, preprocessor: Preprocessor):
+        if not isinstance(preprocessor, Preprocessor):
+            raise TypeError("preprocessor must be a Preprocessor")
+        self._preprocessor = preprocessor
 
     def evaluate(self):
         self._prepare_data()
 
-        self._preprocess_data()
+        training_features = pd.DataFrame()
+        test_features = pd.DataFrame()
+        _ = self._preprocessor.fit_transform(training_features)
+        _ = self._preprocessor.transform(test_features)
 
         self._train_model()
 
@@ -15,10 +25,6 @@ class Evaluator():
 
     @classmethod
     def _prepare_data(cls):
-        pass
-
-    @classmethod
-    def _preprocess_data(cls):
         pass
 
     @classmethod

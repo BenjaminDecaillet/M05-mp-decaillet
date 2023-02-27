@@ -10,6 +10,7 @@
         "isort",
         "mkvirtualenv",
         "rmvirtualenv",
+        "sklearn",
         "virtualenv",
         "virtualenvwrapper",
         "workon"
