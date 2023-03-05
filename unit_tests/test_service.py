@@ -3,7 +3,7 @@ import unittest.mock
 from src import Service
 from src.estimating import Estimator, EstimatorFactory
 from src.preparator import Preparator
-from src.preprocessing import Preprocessor
+from src.preprocessing import Preprocessor, PreprocessorFactory
 
 
 class TestService(unittest.TestCase):
@@ -12,6 +12,7 @@ class TestService(unittest.TestCase):
 
         arg_parser_mock = unittest.mock.patch('src.ArgParser').start().return_value
         arg_parser_mock.seed = 12345
+        arg_parser_mock.preprocessor_factory = unittest.mock.Mock(spec=PreprocessorFactory)
         arg_parser_mock.estimator_factory = unittest.mock.Mock(spec=EstimatorFactory)
         arg_parser_mock.evaluation_count = 54321
 
@@ -22,9 +23,8 @@ class TestService(unittest.TestCase):
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
         self._preparator_factory_class_mock.return_value.create.return_value = self._preparator_mock
 
-        self._preprocessor_factory_class_mock = unittest.mock.patch('src.preprocessing.PreprocessorFactory').start()
         self._preprocessor_mock = unittest.mock.Mock(spec=Preprocessor)
-        self._preprocessor_factory_class_mock.return_value.create.return_value = self._preprocessor_mock
+        arg_parser_mock.preprocessor_factory.create.return_value = self._preprocessor_mock
 
         self._estimator_mock = unittest.mock.Mock(spec=Estimator)
         arg_parser_mock.estimator_factory.create.return_value = self._estimator_mock

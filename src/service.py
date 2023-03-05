@@ -1,8 +1,6 @@
 from random import seed as set_random_seed
 
-import src.estimating
 import src.preparator
-import src.preprocessing
 
 
 class Service:
@@ -18,8 +16,8 @@ class Service:
         arg_parser = src.ArgParser()
 
         set_random_seed(arg_parser.seed)
-        self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
         self._preparator_factory = src.preparator.PreparatorFactory("wines", "file")
+        self._preprocessor_factory = arg_parser.preprocessor_factory
         self._estimator_factory = arg_parser.estimator_factory
         self._evaluation_count = arg_parser.evaluation_count
 
