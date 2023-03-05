@@ -1,6 +1,7 @@
 import argparse
 
 from src.estimating import EstimatorFactory
+from src.preprocessing import PreprocessorFactory
 
 
 class ArgParser:
@@ -11,6 +12,9 @@ class ArgParser:
         parser.add_argument("--seed",
                             help="seed to lock random number generation",
                             type=int, default=None)
+        parser.add_argument("--preprocessor-type",
+                            help="type of preprocessor to use",
+                            choices=PreprocessorFactory.allowed_types, default="standard")
         parser.add_argument("--estimator-type",
                             help="type of estimator to use",
                             choices=EstimatorFactory.allowed_types, default="decision-tree")
@@ -21,12 +25,17 @@ class ArgParser:
         args = parser.parse_args(argv)
 
         self._seed = args.seed
+        self._preprocessor_factory = PreprocessorFactory(args.preprocessor_type)
         self._estimator_factory = EstimatorFactory(args.estimator_type)
         self._evaluation_count = args.evaluation_count
 
     @property
     def seed(self) -> int:
         return self._seed
+
+    @property
+    def preprocessor_factory(self) -> PreprocessorFactory:
+        return self._preprocessor_factory
 
     @property
     def estimator_factory(self) -> EstimatorFactory:
