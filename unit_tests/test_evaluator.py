@@ -1,5 +1,7 @@
 import unittest.mock
 
+import pandas as pd
+
 from src import Evaluator
 from src.estimating import Estimator
 from src.preprocessing import Preprocessor
@@ -7,6 +9,10 @@ from src.preprocessing import Preprocessor
 
 class TestEvaluator(unittest.TestCase):
     def setUp(self):
+        self.addCleanup(unittest.mock.patch.stopall)
+        self._tts_patch = unittest.mock.patch("src.evaluator.train_test_split").start()
+        self._mae_patch = unittest.mock.patch("src.evaluator.mean_absolute_error").start()
+
         self._mock_preprocessor = unittest.mock.Mock(spec=Preprocessor)
         self._mock_estimator = unittest.mock.Mock(spec=Estimator)
 
@@ -27,11 +33,16 @@ class TestEvaluator(unittest.TestCase):
     def test__can_evaluate(self):
         evaluator = Evaluator(self._mock_preprocessor,
                               self._mock_estimator)
+        self._tts_patch.return_value = (unittest.mock.MagicMock(spec=pd.DataFrame),
+                                        unittest.mock.MagicMock(spec=pd.DataFrame))
+        self._mae_patch.return_value = 42
 
         result = evaluator.evaluate()
 
         self.assertEqual(result, 42)
+        self._tts_patch.assert_called_once()
         self._mock_preprocessor.fit_transform.assert_called_once()
         self._mock_preprocessor.transform.assert_called_once()
         self._mock_estimator.fit.assert_called_once()
         self._mock_estimator.predict.assert_called_once()
+        self._mae_patch.assert_called_once()
