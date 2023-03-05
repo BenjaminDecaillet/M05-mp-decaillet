@@ -39,7 +39,7 @@ class TestMinMaxPreprocessor(unittest.TestCase):
 
     def test__fails_if_not_fit(self):
         preprocessor = MinMaxPreprocessor()
-        test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]}, index=range(3))
+        test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]})
 
         with self.assertRaisesRegex(RuntimeError, "^Preprocessor has not been fit yet.$"):
             preprocessor.transform(test_features)
