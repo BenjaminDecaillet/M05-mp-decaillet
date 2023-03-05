@@ -12,6 +12,7 @@ class TestService(unittest.TestCase):
 
         arg_parser_mock = unittest.mock.patch('src.ArgParser').start().return_value
         arg_parser_mock.seed = 12345
+        arg_parser_mock.evaluation_count = 54321
 
         self._evaluator_class_mock = unittest.mock.patch('src.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
@@ -43,7 +44,6 @@ class TestService(unittest.TestCase):
         self._evaluator_class_mock.assert_called_once_with(self._preparator_mock,
                                                            self._preprocessor_mock,
                                                            self._estimator_mock,
-                                                           3)
-
+                                                           54321)
         self._evaluator_mock.evaluate.assert_called_once()
         self._print_mock.assert_called_once_with('MAE: 42')
