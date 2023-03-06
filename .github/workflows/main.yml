@@ -54,7 +54,7 @@ jobs:
           touch sphinx/.nojekyll  # Dear Github, this is not a jekyll site. Chill.
 
       - name: Deploy documentation to GitHub Pages
-        if: success()  &&  github.ref == 'refs/heads/feature/sphinx' # TODO: should be main!
+        if: success()  &&  github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: gh-pages
