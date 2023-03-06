@@ -119,4 +119,6 @@ This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate i
   ```
 * open [sphinx/index.html](sphinx/index.html) in your web browser
 
+[GitHub actions](.github/workflows/main.yml) will auto-deploy doc to [Github pages](https://master-ai-batch5.github.io/M05-mp-decaillet/)
+
 <!-- -------------------------------------------------- -->
