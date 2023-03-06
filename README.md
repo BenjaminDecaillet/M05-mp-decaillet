@@ -111,7 +111,12 @@ This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate i
 
 ### Generate sphinx doc locally
 * activate your virtualenv: `workon m05-mp-decaillet`
-* build doc: `sphinx-build doc sphinx`
+* build doc:
+  ```
+  rm -rf ./doc/apidoc
+  sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+  sphinx-build doc sphinx
+  ```
 * open [sphinx/index.html](sphinx/index.html) in your web browser
 
 <!-- -------------------------------------------------- -->

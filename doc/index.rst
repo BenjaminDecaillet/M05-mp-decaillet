@@ -9,8 +9,8 @@ Welcome to M05-mp-decaillet's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-   api
+   
+   apidoc/src
 
 
 
