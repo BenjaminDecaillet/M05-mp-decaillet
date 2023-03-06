@@ -1,3 +1,6 @@
+import os
+import sys
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -10,14 +13,16 @@ project = 'M05-mp-decaillet'
 copyright = '2023, Benjamin Décaillet, Valentin Décaillet'
 author = 'Benjamin Décaillet, Valentin Décaillet'
 
+# -- Add current project where running from
+sys.path.append(os.path.abspath(".."))
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['sphinx.ext.autodoc']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 
 # -- Options for HTML output -------------------------------------------------
