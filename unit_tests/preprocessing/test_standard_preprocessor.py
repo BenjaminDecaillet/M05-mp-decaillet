@@ -10,17 +10,28 @@ class TestStandardPreprocessor(unittest.TestCase):
         preprocessor = StandardPreprocessor()
 
         with self.subTest("fit_transform"):
-            training_features = pd.DataFrame(data={"feature 1": [1, 2, 3, 4, 5]}, index=range(5))
-            expected = pd.DataFrame(data={"feature 1 (scaled)": [-1.41421, -0.70711, 0.0, 0.70711, 1.41421]},
-                                    index=range(5))
+            training_features = pd.DataFrame(data={
+                "feature 1": [1, 2, 3, 4, 5],
+                "feature 2": [5, 4, 3, 2, 1]
+            })
+            expected = pd.DataFrame(data={
+                "feature 1 (scaled)": [-1.41421, -0.70711, 0.0, 0.70711, 1.41421],
+                "feature 2 (scaled)": [1.41421, 0.70711, 0.0, -0.70711, -1.41421]
+            })
 
             actual = preprocessor.fit_transform(training_features)
 
             pd.testing.assert_frame_equal(actual, expected)
 
         with self.subTest("transform"):
-            test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]}, index=range(3))
-            expected = pd.DataFrame(data={"feature 1 (scaled)": [-2.12132, 0.0, 1.41421]}, index=range(3))
+            test_features = pd.DataFrame(data={
+                "feature 1": [0, 3, 5],
+                "feature 2": [5, 2, 1]
+            })
+            expected = pd.DataFrame(data={
+                "feature 1 (scaled)": [-2.12132, 0.0, 1.41421],
+                "feature 2 (scaled)": [1.41421, -0.70711, -1.41421]
+            })
 
             actual = preprocessor.transform(test_features)
 
@@ -28,15 +39,21 @@ class TestStandardPreprocessor(unittest.TestCase):
 
     def test__fails_if_not_fit(self):
         preprocessor = StandardPreprocessor()
-        test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]}, index=range(3))
+        test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]})
 
         with self.assertRaisesRegex(RuntimeError, "^Preprocessor has not been fit yet.$"):
             preprocessor.transform(test_features)
 
     def test__fails_if_columns_dont_match(self):
         preprocessor = StandardPreprocessor()
-        training_features = pd.DataFrame(data={"feature 1": [1, 2, 3, 4, 5]}, index=range(5))
-        test_features = pd.DataFrame(data={"feature 2": [0, 3, 5]}, index=range(3))
+        training_features = pd.DataFrame(data={
+            "feature 1": [1, 2, 3, 4, 5],
+            "feature 2": [5, 4, 3, 2, 1]
+        })
+        test_features = pd.DataFrame(data={
+            "feature 1": [0, 3, 5],
+            "feature 3": [5, 2, 1]  # <-- different column name
+        })
 
         preprocessor.fit_transform(training_features)
 
