@@ -1,0 +1,30 @@
+import unittest.mock
+
+from src.preparator import PreparatorFactory
+
+
+class TestPreparatorFactory(unittest.TestCase):
+    def test__can_init_boston_with_file(self):
+        preparator_factory = PreparatorFactory("boston", 'file')
+        self.assertIsNotNone(preparator_factory)
+
+    def test__can_init_boston_with_url(self):
+        preparator_factory = PreparatorFactory("boston", 'url')
+        self.assertIsNotNone(preparator_factory)
+
+    def test__init_fails__on_bad_type(self):
+        with self.assertRaisesRegex(ValueError, "^Unknown preparator type 'foo'$"):
+            PreparatorFactory("foo", 'file')
+
+    def test__init_fails__on_bad_source(self):
+        with self.assertRaisesRegex(ValueError, "^Unknown source type 'foo'$"):
+            PreparatorFactory("boston", "foo")
+
+    def test__can_create_boston(self):
+        preparator_factory = PreparatorFactory("boston", 'file')
+
+        with unittest.mock.patch("src.preparator.BostonPreparator") as mock:
+            preparator = preparator_factory.create()
+
+        mock.assert_called_once_with('file')
+        self.assertIsInstance(preparator, mock.return_value.__class__)
