@@ -1,7 +1,6 @@
 from src.preparator import BasePreparator
 
 
-# pragma: no cover  - TODO implement unit tests "identical to wine preparator"
 class BostonPreparator(BasePreparator):
     def __init__(self, source: str):
         sep = None
