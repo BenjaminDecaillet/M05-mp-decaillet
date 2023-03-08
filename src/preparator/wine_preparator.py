@@ -1,7 +1,7 @@
 from src.preparator import BasePreparator
 
 
-class WinePreparator(BasePreparator):  # pragma: no cover TODO add unit tests
+class WinePreparator(BasePreparator):
     def __init__(self, source: str):
         sources = []
         if source == 'file':
