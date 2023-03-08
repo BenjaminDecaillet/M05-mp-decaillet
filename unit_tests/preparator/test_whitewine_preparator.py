@@ -33,15 +33,19 @@ class TestWhiteWinePreparator(unittest.TestCase):
 
     def test_load_from_url(self):
         url_preparator = WhiteWinePreparator('url')
+        self.addCleanup(patch.stopall)
         mock_df = unittest.mock.Mock(spec=pd.DataFrame)
+        mock_read_csv = patch('pandas.read_csv').start()
+        mock_concat = patch('pandas.concat').start()
+        mock_read_csv.return_value = mock_df
+        mock_concat.return_value = mock_df
 
-        with unittest.mock.patch('pandas.read_csv') as mock_read_csv:
-            mock_read_csv.return_value = mock_df
-            actual = url_preparator.load_data()
+        actual = url_preparator.load_data()
 
         mock_read_csv.assert_called_once_with(
             'https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv',
             sep=';')
+        mock_concat.assert_called_once_with([mock_df])
         self.assertEqual(actual['dataset'], mock_df)
         self.assertEqual(actual['features_names'], self._features_names)
         self.assertEqual(actual['targets_names'], self._targets_names)
