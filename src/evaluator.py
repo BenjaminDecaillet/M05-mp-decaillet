@@ -20,11 +20,9 @@ class Evaluator():
         if not isinstance(preparator, Preparator):
             raise TypeError("preparator must be a Preparator")
         self._preparator = preparator
-
         if not isinstance(preprocessor, Preprocessor):
             raise TypeError("preprocessor must be a Preprocessor")
         self._preprocessor = preprocessor
-
         if not isinstance(estimator, Estimator):
             raise TypeError("estimator must be an Estimator")
         self._estimator = estimator
