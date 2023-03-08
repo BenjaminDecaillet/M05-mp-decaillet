@@ -12,6 +12,14 @@ class TestPreparatorFactory(unittest.TestCase):
         preparator_factory = PreparatorFactory("boston", 'url')
         self.assertIsNotNone(preparator_factory)
 
+    def test__can_init_red_wine_with_file(self):
+        preparator_factory = PreparatorFactory("red-wine", 'file')
+        self.assertIsNotNone(preparator_factory)
+
+    def test__can_init_red_wine_with_url(self):
+        preparator_factory = PreparatorFactory("red-wine", 'url')
+        self.assertIsNotNone(preparator_factory)
+
     def test__init_fails__on_bad_type(self):
         with self.assertRaisesRegex(ValueError, "^Unknown preparator type 'foo'$"):
             PreparatorFactory("foo", 'file')
@@ -24,6 +32,15 @@ class TestPreparatorFactory(unittest.TestCase):
         preparator_factory = PreparatorFactory("boston", 'file')
 
         with unittest.mock.patch("src.preparator.BostonPreparator") as mock:
+            preparator = preparator_factory.create()
+
+        mock.assert_called_once_with('file')
+        self.assertIsInstance(preparator, mock.return_value.__class__)
+
+    def test__can_create_red_wine(self):
+        preparator_factory = PreparatorFactory("red-wine", 'file')
+
+        with unittest.mock.patch("src.preparator.RedWinePreparator") as mock:
             preparator = preparator_factory.create()
 
         mock.assert_called_once_with('file')

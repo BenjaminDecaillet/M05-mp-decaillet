@@ -4,7 +4,7 @@ from src.preparator import Preparator
 
 class PreparatorFactory:
     def __init__(self, type: str, source: str):
-        if type not in {"boston"}:
+        if type not in {"boston", "red-wine"}:
             raise ValueError(f"Unknown preparator type '{type}'")
         if source not in {"file", "url"}:
             raise ValueError(f"Unknown source type '{source}'")
@@ -14,3 +14,5 @@ class PreparatorFactory:
     def create(self) -> Preparator:
         if self._type == "boston":
             return src.preparator.BostonPreparator(self._source)
+        if self._type == "red-wine":
+            return src.preparator.RedWinePreparator(self._source)
