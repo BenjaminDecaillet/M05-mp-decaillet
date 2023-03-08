@@ -4,3 +4,4 @@ from .base_preparator import BasePreparator  # isort: skip (import base class be
 from .boston_preparator import BostonPreparator
 from .factory import PreparatorFactory
 from .redwine_preparator import RedWinePreparator
+from .whitewine_preparator import WhiteWinePreparator
