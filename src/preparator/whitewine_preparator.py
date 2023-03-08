@@ -1,7 +1,7 @@
 from src.preparator import BasePreparator
 
 
-class WhiteWinePreparator(BasePreparator):   # pragma: no cover TODO add unit tests
+class WhiteWinePreparator(BasePreparator):
     def __init__(self, source: str):
         if source == 'file':
             sources = 'data/winequality-white.csv'
