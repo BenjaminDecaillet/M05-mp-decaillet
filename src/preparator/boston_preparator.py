@@ -1,7 +1,9 @@
 import pandas as pd
 
+from src.preparator import Preparator
 
-class BostonPreparator():
+
+class BostonPreparator(Preparator):
     def load_data(self) -> pd.DataFrame:
         features_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE',
                           'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']

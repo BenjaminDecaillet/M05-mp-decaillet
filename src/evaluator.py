@@ -5,21 +5,22 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
 from src.estimating import Estimator
-from src.preparator import BostonPreparator
+from src.preparator import Preparator
 from src.preprocessing import Preprocessor
 
 
 class Evaluator():
 
     def __init__(self,
-                 preparator: BostonPreparator,
+                 preparator: Preparator,
                  preprocessor: Preprocessor,
                  estimator: Estimator,
                  evaluation_count: int):
 
-        if not isinstance(preparator, BostonPreparator):
+        if not isinstance(preparator, Preparator):
             raise TypeError("preparator must be a Preparator")
         self._preparator = preparator
+
         if not isinstance(preprocessor, Preprocessor):
             raise TypeError("preprocessor must be a Preprocessor")
         self._preprocessor = preprocessor
