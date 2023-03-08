@@ -12,6 +12,9 @@ class TestService(unittest.TestCase):
         self._evaluator_class_mock = unittest.mock.patch('src.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
+        self._preparator_class_mock = unittest.mock.patch('src.preparator.BostonPreparator').start()
+        self._preparator_mock = self._preparator_class_mock.return_value
+
         self._preprocessor_factory_class_mock = unittest.mock.patch('src.preprocessing.PreprocessorFactory').start()
         self._preprocessor_mock = unittest.mock.Mock(spec=Preprocessor)
         self._preprocessor_factory_class_mock.return_value.create.return_value = self._preprocessor_mock
@@ -34,7 +37,8 @@ class TestService(unittest.TestCase):
 
         service.run()
 
-        self._evaluator_class_mock.assert_called_once_with(self._preprocessor_mock,
+        self._evaluator_class_mock.assert_called_once_with(self._preparator_mock,
+                                                           self._preprocessor_mock,
                                                            self._estimator_mock,
                                                            3)
         self._evaluator_mock.evaluate.assert_called_once()

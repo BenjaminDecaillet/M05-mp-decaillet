@@ -5,14 +5,21 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
 from src.estimating import Estimator
+from src.preparator import BostonPreparator
 from src.preprocessing import Preprocessor
 
 
 class Evaluator():
+
     def __init__(self,
+                 preparator: BostonPreparator,
                  preprocessor: Preprocessor,
                  estimator: Estimator,
                  evaluation_count: int):
+
+        if not isinstance(preparator, BostonPreparator):
+            raise TypeError("preparator must be a Preparator")
+        self._preparator = preparator
         if not isinstance(preprocessor, Preprocessor):
             raise TypeError("preprocessor must be a Preprocessor")
         self._preprocessor = preprocessor
@@ -28,7 +35,8 @@ class Evaluator():
         self._evaluation_count = evaluation_count
 
     def evaluate(self):
-        dataset = self._prepare_data()
+        dataset = self._preparator.load_data()
+
         mean_absolute_errors = [self._evaluate_once(**dataset) for _ in range(self._evaluation_count)]
         return sum(mean_absolute_errors) / len(mean_absolute_errors)
 
@@ -51,19 +59,3 @@ class Evaluator():
         predictions = self._estimator.predict(preprocessed_test_features)
 
         return mean_absolute_error(test_set[targets_names], predictions)
-
-    # region placeholder private methods # TODO remove when corresponding IoD is implemented
-
-    @classmethod
-    def _prepare_data(cls):
-        return {
-            "dataset": pd.DataFrame(data={
-                "foo": range(0, 5),
-                "bar": range(5, 10),
-                "baz": range(10, 15)
-            }),
-            "features_names": ["foo", "bar"],
-            "targets_names": ["baz"]
-        }
-
-    # endregion placeholder private methods
