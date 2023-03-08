@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class BostonPreparator():  # pragma: no cover TODO add unit tests
+class BostonPreparator():
     def load_data(self) -> pd.DataFrame:
         features_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE',
                           'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
