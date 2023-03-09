@@ -9,14 +9,14 @@ class Service:
     def __init__(self) -> None:
         set_random_seed(42)
         self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
+        self._preparator_factory = src.preparator.PreparatorFactory("boston")
         self._estimator_factory = src.estimating.EstimatorFactory("dummy")
         self._evaluation_count = 3
 
     def run(self) -> None:
-        evaluator = src.Evaluator(src.preparator.BostonPreparator(),
+        evaluator = src.Evaluator(self._preparator_factory.create(),
                                   self._preprocessor_factory.create(),
                                   self._estimator_factory.create(),
                                   self._evaluation_count)
         mae = evaluator.evaluate()
-
         print(f"MAE: {mae}")
