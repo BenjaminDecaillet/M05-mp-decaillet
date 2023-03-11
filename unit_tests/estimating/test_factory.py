@@ -8,6 +8,10 @@ class TestEstimatorFactory(unittest.TestCase):
         estimator_factory = EstimatorFactory("linear")
         self.assertIsNotNone(estimator_factory)
 
+    def test__can_init_regression(self):
+        estimator_factory = EstimatorFactory("regression")
+        self.assertIsNotNone(estimator_factory)
+
     def test__init_fails__on_bad_type(self):
         with self.assertRaisesRegex(ValueError, "^Unknown estimator type 'foo'$"):
             EstimatorFactory("foo")
@@ -16,6 +20,15 @@ class TestEstimatorFactory(unittest.TestCase):
         estimator_factory = EstimatorFactory("linear")
 
         with unittest.mock.patch("src.estimating.LinearEstimator") as mock:
+            estimator = estimator_factory.create()
+
+        mock.assert_called_once_with()
+        self.assertIsInstance(estimator, mock.return_value.__class__)
+
+    def test__can_create_regression(self):
+        estimator_factory = EstimatorFactory("regression")
+
+        with unittest.mock.patch("src.estimating.RegressionEstimator") as mock:
             estimator = estimator_factory.create()
 
         mock.assert_called_once_with()
