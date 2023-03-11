@@ -14,6 +14,8 @@ Mind the [accompanying slides](https://docs.google.com/presentation/d/1K4tIIJnhC
   - [Linter](#linter)
     - [Reformat from command line](#reformat-from-command-line)
     - [VS-code settings](#vs-code-settings)
+  - [Doc](#doc)
+    - [Generate sphinx doc locally](#generate-sphinx-doc-locally)
 
 <!-- -------------------------------------------------- -->
 
@@ -100,5 +102,23 @@ In VS-code, the linting  can be automated as follows:
       },
   },
   ```
+
+<!-- -------------------------------------------------- -->
+
+## Doc
+
+This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate its doc.
+
+### Generate sphinx doc locally
+* activate your virtualenv: `workon m05-mp-decaillet`
+* build doc:
+  ```
+  rm -rf ./doc/apidoc
+  sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+  sphinx-build doc sphinx
+  ```
+* open [sphinx/index.html](sphinx/index.html) in your web browser
+
+[GitHub actions](.github/workflows/main.yml) will auto-deploy doc to [Github pages](https://master-ai-batch5.github.io/M05-mp-decaillet/)
 
 <!-- -------------------------------------------------- -->

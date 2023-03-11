@@ -13,25 +13,51 @@ jobs:
   main-ci-action:
     runs-on: ubuntu-latest
 
+    permissions:
+      # required to be able to push sphinx doc
+      # to the branch 'gh-pages'
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+
       - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Enforce linter rules
         run: |
           autopep8 --max-line-length=120 --recursive . -aaa --diff --exit-code
           isort . --check-only
+
       - name: Run unit tests and coverage
         run: |
           coverage run --source=src -m unittest -v
           coverage report -m --fail-under=100
+
       - name: Run e2e tests
         run: |
           python main.py > output.log 2> error.log
           [ -f output.log ] || (echo "File 'output.log' does not exist" && exit 1)
           [ -f error.log ] || (echo "File 'error.log' does not exist" && exit 2)
           [ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 3)
+
+      - name: Build documentation
+        run: |
+          rm -rf ./doc/apidoc
+          sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+          sphinx-build doc sphinx
+          touch sphinx/.nojekyll  # Dear Github, this is not a jekyll site. Chill.
+
+      - name: Deploy documentation to GitHub Pages
+        if: success()  &&  github.ref == 'refs/heads/main'
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: sphinx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
