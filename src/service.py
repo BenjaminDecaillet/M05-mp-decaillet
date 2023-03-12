@@ -6,14 +6,6 @@ import src.preprocessing
 
 
 class Service:
-    """Entry point for the application.
-
-    This class is responsible for creating the necessary objects and inject
-    them into the Evaluator class.
-
-    Usage: ``Service().run()``
-    """
-
     def __init__(self) -> None:
         set_random_seed(42)
         self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
@@ -22,7 +14,6 @@ class Service:
         self._evaluation_count = 3
 
     def run(self) -> None:
-        """Run the application."""
         evaluator = src.Evaluator(self._preparator_factory.create(),
                                   self._preprocessor_factory.create(),
                                   self._estimator_factory.create(),

@@ -8,7 +8,4 @@ __pycache__/
 
 .coverage
 
-sphinx/
-doc/apidoc
-
 .DS_Store
