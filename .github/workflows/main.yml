@@ -41,7 +41,7 @@ jobs:
 
       - name: Run e2e tests
         run: |
-          rm output.log error.log || True 
+          rm output.log error.log || true 
 
           echo "test1" >> output.log
           python main.py --seed=42 --dataset=boston >> output.log 2>> error.log
