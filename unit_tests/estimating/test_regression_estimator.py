@@ -38,7 +38,7 @@ class TestRegressionEstimator(unittest.TestCase):
         estimator = RegressionEstimator()
         test_features = pd.DataFrame(data={"feature 1": [4.0, 5.0, 6.0]})
 
-        with self.assertRaisesRegex(RuntimeError, "^Estimator has not been fit yet.$"):
+        with self.assertRaisesRegex(RuntimeError, "^Estimator has not been fitted yet.$"):
             estimator.predict(test_features)
 
     def test__fails_if_columns_dont_match(self):

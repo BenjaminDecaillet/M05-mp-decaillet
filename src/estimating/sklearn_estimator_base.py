@@ -21,7 +21,7 @@ class SkLearnEstimatorBase(Estimator):
 
     def predict(self, features: pd.DataFrame) -> pd.DataFrame:
         if self._model is None:
-            raise RuntimeError("Estimator has not been fit yet.")
+            raise RuntimeError("Estimator has not been fitted yet.")
         if not self._feature_columns.equals(features.columns):
             raise ValueError("Features have different columns than training features.")
 
