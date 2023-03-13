@@ -23,7 +23,7 @@ class SkLearnPreprocessorBase(Preprocessor):
 
     def transform(self, features: pd.DataFrame) -> pd.DataFrame:
         if self._scaler is None:
-            raise RuntimeError("Preprocessor has not been fit yet.")
+            raise RuntimeError("Preprocessor has not been fitted yet.")
         if not self._columns.equals(features.columns):
             raise ValueError("Features have different columns than training features.")
 

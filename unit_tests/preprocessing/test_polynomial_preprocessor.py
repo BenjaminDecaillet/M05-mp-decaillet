@@ -62,7 +62,7 @@ class TestPolynomialPreprocessor(unittest.TestCase):
         preprocessor = PolynomialPreprocessor()
         test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]})
 
-        with self.assertRaisesRegex(RuntimeError, "^Preprocessor has not been fit yet.$"):
+        with self.assertRaisesRegex(RuntimeError, "^Preprocessor has not been fitted yet.$"):
             preprocessor.transform(test_features)
 
     def test__fails_if_columns_dont_match(self):

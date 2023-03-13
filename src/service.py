@@ -10,7 +10,7 @@ class Service:
         set_random_seed(42)
         self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
         self._preparator_factory = src.preparator.PreparatorFactory("wines", "file")
-        self._estimator_factory = src.estimating.EstimatorFactory("dummy")
+        self._estimator_factory = src.estimating.EstimatorFactory("regression")
         self._evaluation_count = 3
 
     def run(self) -> None:
