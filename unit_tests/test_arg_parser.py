@@ -21,7 +21,7 @@ class TestArgParser(unittest.TestCase):
         arg_parser = ArgParser(argv)
 
         self.assertEqual(arg_parser.seed, None)
-        self._preprocessor_factory_class_mock.assert_called_once_with('standard')
+        self._preprocessor_factory_class_mock.assert_called_once_with('standard', None)
         self.assertEqual(arg_parser.preprocessor_factory, self._preprocessor_factory_class_mock.return_value)
         self._estimator_factory_class_mock.assert_called_once_with('decision-tree')
         self.assertEqual(arg_parser.estimator_factory, self._estimator_factory_class_mock.return_value)
@@ -30,13 +30,16 @@ class TestArgParser(unittest.TestCase):
     def test__can_set_values(self) -> None:
         argv = ['--seed', '-12',
                 '--evaluation-count', '15',
-                '--preprocessor-type', 'min-max',
+                '--preprocessor-type', 'polynomial',
+                '--polynomial-preprocessor-kwargs', 'degree: 2, interaction_only: False, include_bias: True, order: F',
                 '--estimator-type', 'linear-regression']  # This is the default, but it's the only allowed type.
 
         arg_parser = ArgParser(argv)
 
         self.assertEqual(arg_parser.seed, -12)
-        self._preprocessor_factory_class_mock.assert_called_once_with('min-max')
+        self._preprocessor_factory_class_mock.assert_called_once_with('polynomial', {
+            "degree": 2, "interaction_only": False, "include_bias": True, "order": "F"
+        })
         self.assertEqual(arg_parser.preprocessor_factory, self._preprocessor_factory_class_mock.return_value)
         self._estimator_factory_class_mock.assert_called_once_with('linear-regression')
         self.assertEqual(arg_parser.estimator_factory, self._estimator_factory_class_mock.return_value)
@@ -53,6 +56,12 @@ class TestArgParser(unittest.TestCase):
 
     def test__preprocessor_type_must_be_allowed(self) -> None:
         argv = ['--preprocessor-type', 'foo']
+        with self.assertRaises(SystemExit):
+            ArgParser(argv)
+
+    def test__preprocessor_kwargs_must_be_valid(self) -> None:
+        argv = ['--preprocessor-type', 'polynomial',
+                '--polynomial-preprocessor-kwargs', 'this string is not interpretable as a dict']
         with self.assertRaises(SystemExit):
             ArgParser(argv)
 
