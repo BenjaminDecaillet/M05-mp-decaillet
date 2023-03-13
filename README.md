@@ -1,104 +1,38 @@
 # M05-mp-decaillet
+[![Documentation](https://img.shields.io/badge/docs-latest-orange.svg)](https://master-ai-batch5.github.io/M05-mp-decaillet/index.html)
+[![GitHub Project](https://img.shields.io/badge/github-project-0000c0.svg)](https://github.com/master-ai-batch5/M05-mp-decaillet)
+[![PyPI Project](https://img.shields.io/badge/pypi-project-blueviolet.svg)](https://test.pypi.org/project/decm05)
+
+
+<!-- -------------------------------------------------- -->
 
 Mini-project, as part of [module M05](https://moodle.fernuni.ch/course/view.php?id=3063) of [UniDistance's Master in AI](https://unidistance.ch/en/mathematics-and-computer-science/master-in-artificial-intelligence).
 
 Mind the [accompanying slides](https://docs.google.com/presentation/d/1K4tIIJnhCY4eQcIWi5A6ZEol2mN5A6Cau0tL68QcjHY/edit?usp=sharing) (_access restrictions may apply_)
 
-- [M05-mp-decaillet](#m05-mp-decaillet)
-  - [Quick Start](#quick-start)
-  - [Installation](#installation)
-    - [Setup virtual environment](#setup-virtual-environment)
-      - [OSX and Linux](#osx-and-linux)
-      - [Windows](#windows)
-  - [Unit tests and coverage](#unit-tests-and-coverage)
-  - [Linter](#linter)
-    - [Reformat from command line](#reformat-from-command-line)
-    - [VS-code settings](#vs-code-settings)
-
-<!-- -------------------------------------------------- -->
-
-## Quick Start
-
-From command line:
-
-1. start your [virtual environment](#setup-virtual-environment): `workon m05-mp-decaillet`
-2. run [main.py](main.py): `python main.py`
-3. [run unit tests](#unit-tests-and-coverage) locally.
-
-<!-- -------------------------------------------------- -->
-
-## Installation
-
-### Setup virtual environment
-
-This README.md assumes a functional Python development environment with:
-
-- [virtual environments](https://docs.python.org/3/library/venv.html)
-- a virtualenv wrapper:
-  - **OSX and Linux**: use package [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
-  - **Windows**: use package [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/)
-
-The project requires **Python 3.11.1**.
-
-Create the virtualenv as follows:
+This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate its documentation.
+For installation and usage instructions, please refer to our documentation, that can be accessed through the relevant badge above.
+## Doc
+### Generate sphinx doc locally
+* activate your virtualenv: `workon m05-mp-decaillet`
+* build doc:
 
 #### OSX and Linux
-
-```bash
-rmvirtualenv m05-mp-decaillet
-mkvirtualenv m05-mp-decaillet --python=/usr/local/bin/python3.11 -r requirements.txt
-```
-
-_NB: exact path to **python3.11** may vary; locate it with: `which python3.11`_
-
+  ```bash
+  rm -rf ./doc/apidoc
+  sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+  sphinx-build doc sphinx
+  ```
 #### Windows
 
 ```cmd
-rmvirtualenv m05-mp-decaillet
-mkvirtualenv m05-mp-decaillet --python "%userprofile%\AppData\Local\Programs\Python\Python311\python.exe" -r requirements.txt 
+  rmdir /S/Q ./doc/apidoc
+  sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+  sphinx-build doc sphinx
 ```
 
-_NB: exact path to **python3.11** may vary; locate it with: `where python` (Windows CMD) or `get-command python` (Windows PowerShell)_
+* open [sphinx/index.html](sphinx/index.html) in your web browser
 
-<!-- -------------------------------------------------- -->
-
-## Unit tests and coverage
-* activate your virtualenv: `workon m05-mp-decaillet`
-* run unit tests: `python -m unittest discover -v`
-* run unit tests and display coverage report: `coverage run --source=src -m unittest -v  &&  coverage report -m`
-
-[GitHub actions](.github/workflows/main.yml) will enforce unit-test coverage of 100%.
-
-<!-- -------------------------------------------------- -->
-
-## Linter
-
-The python code in this project must match [autopep8](https://pypi.org/project/autopep8/) and [isort](https://pypi.org/project/isort/) linting/formatting rules.
-
-[GitHub actions](.github/workflows/main.yml) will enforce these rules.
-
-### Reformat from command line
-* activate your virtualenv: `workon m05-mp-decaillet`
-* apply autopep8 to all local files: `autopep8 --max-line-length=120 --recursive . -aaa --in-place`
-* apply isort to all local files: `isort .`
-
-### VS-code settings
-In VS-code, the linting  can be automated as follows:
-- Install extension [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (which is a [recommended extensions](.vscode/extensions.json))
-- Edit your **User** Settings:
-  - CMD + shift + P > "Preferences: Open User Settings (JSON)"
-- Append the following to you User Settings:
-  ```json
-  "python.formatting.autopep8Args": [
-      "--max-line-length=120"
-  ],
-  "[python]": {
-      "editor.defaultFormatter": "ms-python.python",
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-          "source.organizeImports": true,
-      },
-  },
-  ```
+[GitHub actions](.github/workflows/main.yml) will auto-deploy doc to [Github pages](https://master-ai-batch5.github.io/M05-mp-decaillet/)
 
 <!-- -------------------------------------------------- -->
