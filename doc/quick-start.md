@@ -3,8 +3,9 @@
 
 From command line:
 
-1. start your [virtual environment](###setup-virtual-environment): `workon m05-mp-decaillet`
-2. run [main.py](main.py): `python main.py`
+1. start your virtual environment: `workon m05-mp-decaillet`
+   - initial setup described below
+2. run **main.py**: `python main.py`
 
 <!-- -------------------------------------------------- -->
 
