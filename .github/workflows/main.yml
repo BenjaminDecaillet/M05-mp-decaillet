@@ -41,10 +41,31 @@ jobs:
 
       - name: Run e2e tests
         run: |
-          python main.py > output.log 2> error.log
+          rm output.log error.log || True 
+
+          echo "test1" >> output.log
+          python main.py --seed=42 --dataset=boston >> output.log 2>> error.log
+
+          echo "test2" >> output.log
+          python main.py --seed=42 --dataset=wines --preprocessor-type=min-max --estimator-type=decision-tree >> output.log 2>> error.log
+
+          echo "test3" >> output.log
+          python main.py --seed=42 --dataset=red-wine --preprocessor-type=polynomial --polynomial-preprocessor-kwargs='degree: 3, include_bias: False' --estimator-type=linear-regression >> output.log 2>> error.log
+
           [ -f output.log ] || (echo "File 'output.log' does not exist" && exit 1)
           [ -f error.log ] || (echo "File 'error.log' does not exist" && exit 2)
           [ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 3)
+
+          cat << EOF > expected_output.log
+          test1
+          MAE: 3.2029549083280457
+          test2
+          MAE: 0.5765292734748507
+          test3
+          MAE: 0.9155912646110179
+          EOF
+
+          diff output.log expected_output.log || (echo "Output does not match expected output" && exit 4)
 
       - name: Build documentation
         run: |
