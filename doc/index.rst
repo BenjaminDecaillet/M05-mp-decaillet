@@ -6,10 +6,15 @@
 Welcome to M05-mp-decaillet's documentation!
 ============================================
 
+Mini-project, as part of `module M05 <https://moodle.fernuni.ch/course/view.php?id=3063>`_
+of `UniDistance's Master in AI <https://unidistance.ch/en/mathematics-and-computer-science/master-in-artificial-intelligence>`_.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
    
+   architecture
    apidoc/src
 
 
