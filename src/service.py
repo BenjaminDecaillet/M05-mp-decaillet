@@ -15,7 +15,9 @@ class Service:
     """
 
     def __init__(self) -> None:
-        set_random_seed(42)
+        arg_parser = src.ArgParser()
+
+        set_random_seed(arg_parser.seed)
         self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
         self._preparator_factory = src.preparator.PreparatorFactory("wines", "file")
         self._estimator_factory = src.estimating.EstimatorFactory("decision-tree")

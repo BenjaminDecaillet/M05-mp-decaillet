@@ -10,6 +10,9 @@ class TestService(unittest.TestCase):
     def setUp(self) -> None:
         self.addCleanup(unittest.mock.patch.stopall)
 
+        arg_parser_mock = unittest.mock.patch('src.ArgParser').start().return_value
+        arg_parser_mock.seed = 12345
+
         self._evaluator_class_mock = unittest.mock.patch('src.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
@@ -31,7 +34,7 @@ class TestService(unittest.TestCase):
         with unittest.mock.patch('src.service.set_random_seed') as set_random_seed_mock:
             Service()
 
-        set_random_seed_mock.assert_called_once_with(42)
+        set_random_seed_mock.assert_called_once_with(12345)
 
     def test_runs(self) -> None:
         self._evaluator_mock.evaluate.return_value = 42
