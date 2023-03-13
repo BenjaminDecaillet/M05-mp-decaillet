@@ -1,6 +1,7 @@
 import argparse
 
 from src.estimating import EstimatorFactory
+from src.preparator import PreparatorFactory
 from src.preprocessing import PreprocessorFactory
 
 
@@ -12,6 +13,14 @@ class ArgParser:
         parser.add_argument("--seed",
                             help="seed to lock random number generation",
                             type=int, default=None)
+
+        parser.add_argument("--dataset",
+                            help="which dataset to use",
+                            choices=PreparatorFactory.allowed_types, default="boston")
+
+        parser.add_argument("--dataset-source",
+                            help="where to get the dataset from",
+                            choices=PreparatorFactory.allowed_sources, default="file")
 
         parser.add_argument("--preprocessor-type",
                             help="type of preprocessor to use",
@@ -37,6 +46,7 @@ class ArgParser:
         args = parser.parse_args(argv)
 
         self._seed = args.seed
+        self._preparator_factory = PreparatorFactory(args.dataset, args.dataset_source)
         self._preprocessor_factory = PreprocessorFactory(args.preprocessor_type, args.polynomial_preprocessor_kwargs)
         self._estimator_factory = EstimatorFactory(args.estimator_type)
         self._evaluation_count = args.evaluation_count
@@ -44,6 +54,10 @@ class ArgParser:
     @property
     def seed(self) -> int:
         return self._seed
+
+    @property
+    def preparator_factory(self) -> None:
+        return self._preparator_factory
 
     @property
     def preprocessor_factory(self) -> PreprocessorFactory:
