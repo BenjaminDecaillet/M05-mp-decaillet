@@ -1,5 +1,7 @@
 import argparse
 
+from src.estimating import EstimatorFactory
+
 
 class ArgParser:
     def __init__(self, argv=None):
@@ -9,6 +11,9 @@ class ArgParser:
         parser.add_argument("--seed",
                             help="seed to lock random number generation",
                             type=int, default=None)
+        parser.add_argument("--estimator-type",
+                            help="type of estimator to use",
+                            choices=EstimatorFactory.allowed_types, default="decision-tree")
         parser.add_argument("--evaluation-count",
                             help="number of times to evaluate the model",
                             type=self._strictly_positive_int, default=3)
@@ -16,11 +21,16 @@ class ArgParser:
         args = parser.parse_args(argv)
 
         self._seed = args.seed
+        self._estimator_factory = EstimatorFactory(args.estimator_type)
         self._evaluation_count = args.evaluation_count
 
     @property
     def seed(self) -> int:
         return self._seed
+
+    @property
+    def estimator_factory(self) -> EstimatorFactory:
+        return self._estimator_factory
 
     @property
     def evaluation_count(self) -> int:

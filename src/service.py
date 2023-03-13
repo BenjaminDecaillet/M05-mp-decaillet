@@ -20,7 +20,7 @@ class Service:
         set_random_seed(arg_parser.seed)
         self._preprocessor_factory = src.preprocessing.PreprocessorFactory("standard")
         self._preparator_factory = src.preparator.PreparatorFactory("wines", "file")
-        self._estimator_factory = src.estimating.EstimatorFactory("decision-tree")
+        self._estimator_factory = arg_parser.estimator_factory
         self._evaluation_count = arg_parser.evaluation_count
 
     def run(self) -> None:
