@@ -13,6 +13,11 @@ jobs:
   main-ci-action:
     runs-on: ubuntu-latest
 
+    permissions:
+      # required to be able to push sphinx doc
+      # to the branch 'gh-pages'
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
 
@@ -40,3 +45,19 @@ jobs:
           [ -f output.log ] || (echo "File 'output.log' does not exist" && exit 1)
           [ -f error.log ] || (echo "File 'error.log' does not exist" && exit 2)
           [ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 3)
+
+      - name: Build documentation
+        run: |
+          rm -rf ./doc/apidoc
+          sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+          sphinx-build doc sphinx
+          touch sphinx/.nojekyll  # Dear Github, this is not a jekyll site. Chill.
+
+      - name: Deploy documentation to GitHub Pages
+        if: success()  &&  github.ref == 'refs/heads/feature/sphinx' # TODO: should be main!
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: sphinx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
