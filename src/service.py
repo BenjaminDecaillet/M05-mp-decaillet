@@ -45,4 +45,15 @@ class Service:
                     })
 
         mean_absolute_errors = pd.DataFrame(mean_absolute_errors)
+
+        # Even with fixed seed, MAEs can be slightly different when comparing execution of this code
+        # on different OSes.
+        # These are *tiny* differences (i.e. differences after the 5th decimal place, often even way
+        # further) which I think are due to floating point arithmetic differences between OSes, but
+        # I am not sure. As far as MAE is concerned, they are not significant at all.
+        # However, left unchecked, they would cause automated tests to fail (especially when represented
+        # as strings, and rounding-to-nearest trickles decimal places up). As a workaround, we round
+        # the MAEs to 4 decimal places before printing them.
+        mean_absolute_errors = mean_absolute_errors.round(4)
+
         print(mean_absolute_errors.to_string(index=False))

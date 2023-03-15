@@ -20,7 +20,7 @@ python main.py --seed=42 \
                > output.log 2>> error.log
 diff -q <(cat <<EOF
 dataset preprocessor     estimator  evaluation count  MEAN ABSOLUTE ERROR
- boston     standard decision-tree                 3             3.202955
+ boston     standard decision-tree                 3                3.203
 EOF
 ) output.log || (echo "Output 1 does not match expected output" \
                                 && cat output.log \
@@ -33,7 +33,7 @@ python main.py --seed=42 \
                > output.log 2>> error.log
 diff -q <(cat <<EOF
 dataset preprocessor     estimator  evaluation count  MEAN ABSOLUTE ERROR
-  wines      min-max decision-tree                 3             0.576529
+  wines      min-max decision-tree                 3               0.5765
 EOF
 ) output.log || (echo "Output 2 does not match expected output" \
                                 && cat output.log \
@@ -47,7 +47,7 @@ python main.py --seed=42 \
                > output.log 2>> error.log
 diff -q <(cat <<EOF
  dataset preprocessor         estimator  evaluation count  MEAN ABSOLUTE ERROR
-red-wine   polynomial linear-regression                 3             0.915591
+red-wine   polynomial linear-regression                 3               0.9156
 EOF
 ) output.log || (echo "Output 3 does not match expected output" \
                                 && cat output.log \

@@ -53,5 +53,5 @@ class TestService(unittest.TestCase):
         self._evaluator_mock.evaluate.assert_called_once()
         self._print_mock.assert_called_once_with(
             'dataset preprocessor estimator  evaluation count  MEAN ABSOLUTE ERROR\n'
-            '    foo          bar       baz             54321            42.424242'
+            '    foo          bar       baz             54321              42.4242'
         )
