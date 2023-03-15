@@ -14,12 +14,15 @@ IFS=$'\n\t'
 
 echo "Running e2e tests..."
 
-# TODO: assertions (grep) below can be improved
 
 python main.py --seed=42 \
                --dataset=boston \
                > output.log 2>> error.log
-grep -q "3.2029" output.log || (echo "Output 1 does not match expected output" \
+diff -q <(cat <<EOF
+dataset preprocessor     estimator  evaluation count  MEAN ABSOLUTE ERROR
+ boston     standard decision-tree                 3             3.202955
+EOF
+) output.log || (echo "Output 1 does not match expected output" \
                                 && cat output.log \
                                 && exit 1)
 
@@ -28,7 +31,11 @@ python main.py --seed=42 \
                --preprocessor-type=min-max \
                --estimator-type=decision-tree \
                > output.log 2>> error.log
-grep -q "0.5765" output.log || (echo "Output 2 does not match expected output" \
+diff -q <(cat <<EOF
+dataset preprocessor     estimator  evaluation count  MEAN ABSOLUTE ERROR
+  wines      min-max decision-tree                 3             0.576529
+EOF
+) output.log || (echo "Output 2 does not match expected output" \
                                 && cat output.log \
                                 && exit 2)
 
@@ -38,11 +45,17 @@ python main.py --seed=42 \
                --polynomial-preprocessor-kwargs='degree: 3, include_bias: False' \
                --estimator-type=linear-regression \
                > output.log 2>> error.log
-grep -q "0.9155" output.log || (echo "Output 3 does not match expected output" \
+diff -q <(cat <<EOF
+ dataset preprocessor         estimator  evaluation count  MEAN ABSOLUTE ERROR
+red-wine   polynomial linear-regression                 3             0.915591
+EOF
+) output.log || (echo "Output 3 does not match expected output" \
                                 && cat output.log \
                                 && exit 3)
 
-[ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 4)
+[ ! -s error.log ] || (echo "File 'error.log' is not empty" \
+                        && cat error.log \
+                        && exit 4)
 
 rm output.log error.log
 
