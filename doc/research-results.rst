@@ -15,10 +15,22 @@ The results of the analysis are shown below.
 Wine Quality
 ------------
 
-TODO
+.. testcode::
+
+   print("TODO")
+
+.. testoutput::
+
+    TODO
 
 
 Boston House Prices
 -------------------
 
-TODO
+.. testcode::
+
+   print("TODO")
+
+.. testoutput::
+
+    TODO
