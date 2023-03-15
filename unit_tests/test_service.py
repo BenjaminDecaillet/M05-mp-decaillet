@@ -10,14 +10,14 @@ class TestService(unittest.TestCase):
     def setUp(self) -> None:
         self.addCleanup(unittest.mock.patch.stopall)
 
-        arg_parser_mock = unittest.mock.patch('src.ArgParser').start().return_value
+        arg_parser_mock = unittest.mock.patch('src.service.ArgParser').start().return_value
         arg_parser_mock.seed = 12345
         arg_parser_mock.preparator_factory = unittest.mock.Mock(spec=PreparatorFactory)
         arg_parser_mock.preprocessor_factory = unittest.mock.Mock(spec=PreprocessorFactory)
         arg_parser_mock.estimator_factory = unittest.mock.Mock(spec=EstimatorFactory)
         arg_parser_mock.evaluation_count = 54321
 
-        self._evaluator_class_mock = unittest.mock.patch('src.Evaluator').start()
+        self._evaluator_class_mock = unittest.mock.patch('src.service.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
