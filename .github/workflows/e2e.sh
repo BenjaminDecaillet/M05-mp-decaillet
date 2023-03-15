@@ -14,21 +14,23 @@ IFS=$'\n\t'
 
 echo "Running e2e tests..."
 
+# TODO: assertions (grep) below can be improved
+
 python main.py --seed=42 \
                --dataset=boston \
                > output.log 2>> error.log
-grep -q "MAE: 3.2030" output.log || (echo "Output 1 does not match expected output" \
-                                        && cat output.log \
-                                        && exit 1)
+grep -q "3.2029" output.log || (echo "Output 1 does not match expected output" \
+                                && cat output.log \
+                                && exit 1)
 
 python main.py --seed=42 \
                --dataset=wines \
                --preprocessor-type=min-max \
                --estimator-type=decision-tree \
                > output.log 2>> error.log
-grep -q "MAE: 0.5765" output.log || (echo "Output 2 does not match expected output" \
-                                        && cat output.log \
-                                        && exit 2)
+grep -q "0.5765" output.log || (echo "Output 2 does not match expected output" \
+                                && cat output.log \
+                                && exit 2)
 
 python main.py --seed=42 \
                --dataset=red-wine \
@@ -36,9 +38,9 @@ python main.py --seed=42 \
                --polynomial-preprocessor-kwargs='degree: 3, include_bias: False' \
                --estimator-type=linear-regression \
                > output.log 2>> error.log
-grep -q "MAE: 0.9156" output.log || (echo "Output 3 does not match expected output" \
-                                        && cat output.log \
-                                        && exit 3)
+grep -q "0.9155" output.log || (echo "Output 3 does not match expected output" \
+                                && cat output.log \
+                                && exit 3)
 
 [ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 4)
 

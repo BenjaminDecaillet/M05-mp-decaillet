@@ -20,6 +20,8 @@ class TestService(unittest.TestCase):
         self._evaluator_class_mock = unittest.mock.patch('src.service.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
+        # TODO: should test with more than 1 preparator, preprocessor, and estimator
+
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
         arg_parser_mock.preparator_factory.create_many.return_value = [self._preparator_mock]
 
@@ -46,4 +48,7 @@ class TestService(unittest.TestCase):
                                                            self._estimator_mock,
                                                            54321)
         self._evaluator_mock.evaluate.assert_called_once()
-        self._print_mock.assert_called_once_with('MAE: 42.4242')
+        self._print_mock.assert_called_once_with(
+            '   dataset preprocessor estimator  evaluation count  MEAN ABSOLUTE ERROR\n'
+            'Preparator Preprocessor Estimator             54321            42.424242'
+        )
