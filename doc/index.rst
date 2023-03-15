@@ -14,6 +14,7 @@ of `UniDistance's Master in AI <https://unidistance.ch/en/mathematics-and-comput
    :maxdepth: 1
    :caption: Contents:
    
+   research-results
    quick-start
    architecture
    automated-tests
