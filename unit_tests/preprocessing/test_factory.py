@@ -38,25 +38,25 @@ class TestPreprocessorFactory(unittest.TestCase):
         preprocessor_factory = PreprocessorFactory("min-max")
 
         with unittest.mock.patch("src.preprocessing.MinMaxPreprocessor") as mock:
-            preprocessor = preprocessor_factory.create()
+            actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with()
-        self.assertIsInstance(preprocessor, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_standard(self):
         preprocessor_factory = PreprocessorFactory("standard")
 
         with unittest.mock.patch("src.preprocessing.StandardPreprocessor") as mock:
-            preprocessor = preprocessor_factory.create()
+            actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with()
-        self.assertIsInstance(preprocessor, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_polynomial(self):
         preprocessor_factory = PreprocessorFactory("polynomial", {"foo": "bar"})
 
         with unittest.mock.patch("src.preprocessing.PolynomialPreprocessor") as mock:
-            preprocessor = preprocessor_factory.create()
+            actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with(foo="bar")
-        self.assertIsInstance(preprocessor, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])

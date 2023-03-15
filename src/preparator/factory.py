@@ -8,18 +8,25 @@ class PreparatorFactory:
             raise ValueError(f"Unknown preparator type '{type}'")
         if source not in self.allowed_sources:
             raise ValueError(f"Unknown source type '{source}'")
+        self._types = [type]
         self._source = source
-        self._type = type
 
-    def create(self) -> Preparator:
-        if self._type == "boston":
-            return src.preparator.BostonPreparator(self._source)
-        if self._type == "red-wine":
-            return src.preparator.RedWinePreparator(self._source)
-        if self._type == "white-wine":
-            return src.preparator.WhiteWinePreparator(self._source)
-        if self._type == "wines":
-            return src.preparator.WinePreparator(self._source)
+    def create_many(self) -> list[Preparator]:
+        preparators = []
+        for type in self._types:
+            if type == "boston":
+                preparators.append(src.preparator.BostonPreparator(self._source))
+                continue
+            if type == "red-wine":
+                preparators.append(src.preparator.RedWinePreparator(self._source))
+                continue
+            if type == "white-wine":
+                preparators.append(src.preparator.WhiteWinePreparator(self._source))
+                continue
+            if type == "wines":
+                preparators.append(src.preparator.WinePreparator(self._source))
+                continue
+        return preparators
 
     @classmethod
     @property

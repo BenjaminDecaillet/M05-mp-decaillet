@@ -23,9 +23,10 @@ class Service:
 
     def run(self) -> None:
         """Run the application."""
-        evaluator = Evaluator(self._preparator_factory.create(),
-                              self._preprocessor_factory.create(),
-                              self._estimator_factory.create(),
+        # TODO: actually call all the preparators, preprocessors and estimators, not just the first ones
+        evaluator = Evaluator(self._preparator_factory.create_many()[0],
+                              self._preprocessor_factory.create_many()[0],
+                              self._estimator_factory.create_many()[0],
                               self._evaluation_count)
         mae = evaluator.evaluate()
         print(f"MAE: {mae:.4f}")

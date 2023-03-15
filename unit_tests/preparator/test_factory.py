@@ -48,34 +48,34 @@ class TestPreparatorFactory(unittest.TestCase):
         preparator_factory = PreparatorFactory("boston", 'file')
 
         with unittest.mock.patch("src.preparator.BostonPreparator") as mock:
-            preparator = preparator_factory.create()
+            actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
-        self.assertIsInstance(preparator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_red_wine(self):
         preparator_factory = PreparatorFactory("red-wine", 'file')
 
         with unittest.mock.patch("src.preparator.RedWinePreparator") as mock:
-            preparator = preparator_factory.create()
+            actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
-        self.assertIsInstance(preparator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_white_wine(self):
         preparator_factory = PreparatorFactory("white-wine", 'file')
 
         with unittest.mock.patch("src.preparator.WhiteWinePreparator") as mock:
-            preparator = preparator_factory.create()
+            actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
-        self.assertIsInstance(preparator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_wines(self):
         preparator_factory = PreparatorFactory("wines", 'file')
 
         with unittest.mock.patch("src.preparator.WinePreparator") as mock:
-            preparator = preparator_factory.create()
+            actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
-        self.assertIsInstance(preparator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])

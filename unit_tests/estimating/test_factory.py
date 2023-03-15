@@ -20,16 +20,16 @@ class TestEstimatorFactory(unittest.TestCase):
         estimator_factory = EstimatorFactory("linear-regression")
 
         with unittest.mock.patch("src.estimating.LinearRegressionEstimator") as mock:
-            estimator = estimator_factory.create()
+            actual = estimator_factory.create_many()
 
         mock.assert_called_once_with()
-        self.assertIsInstance(estimator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])
 
     def test__can_create_decision_tree(self):
         estimator_factory = EstimatorFactory("decision-tree")
 
         with unittest.mock.patch("src.estimating.DecisionTreeEstimator") as mock:
-            estimator = estimator_factory.create()
+            actual = estimator_factory.create_many()
 
         mock.assert_called_once_with()
-        self.assertIsInstance(estimator, mock.return_value.__class__)
+        self.assertEquals(actual, [mock.return_value])

@@ -21,13 +21,13 @@ class TestService(unittest.TestCase):
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
-        arg_parser_mock.preparator_factory.create.return_value = self._preparator_mock
+        arg_parser_mock.preparator_factory.create_many.return_value = [self._preparator_mock]
 
         self._preprocessor_mock = unittest.mock.Mock(spec=Preprocessor)
-        arg_parser_mock.preprocessor_factory.create.return_value = self._preprocessor_mock
+        arg_parser_mock.preprocessor_factory.create_many.return_value = [self._preprocessor_mock]
 
         self._estimator_mock = unittest.mock.Mock(spec=Estimator)
-        arg_parser_mock.estimator_factory.create.return_value = self._estimator_mock
+        arg_parser_mock.estimator_factory.create_many.return_value = [self._estimator_mock]
 
         self._print_mock = unittest.mock.patch('builtins.print').start()
 

@@ -12,6 +12,7 @@
         "endregion",
         "isort",
         "mkvirtualenv",
+        "preparators",
         "preprocessors",
         "rmvirtualenv",
         "sklearn",
