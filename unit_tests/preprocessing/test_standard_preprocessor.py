@@ -37,6 +37,11 @@ class TestStandardPreprocessor(unittest.TestCase):
 
             pd.testing.assert_frame_equal(actual, expected)
 
+    def test__name(self):
+        actual = StandardPreprocessor().name
+
+        self.assertEqual(actual, "standard")
+
     def test__fails_if_not_fit(self):
         preprocessor = StandardPreprocessor()
         test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]})

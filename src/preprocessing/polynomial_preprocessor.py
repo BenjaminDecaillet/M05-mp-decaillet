@@ -8,6 +8,10 @@ class PolynomialPreprocessor(SkLearnPreprocessorBase):
         super().__init__()
         self._polynomial_features_kwargs = polynomial_features_kwargs
 
+    @property
+    def name(self) -> str:
+        return "polynomial"
+
     def _get_scaler(self):
         return preprocessing.PolynomialFeatures(**self._polynomial_features_kwargs)
 

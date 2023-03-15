@@ -13,3 +13,7 @@ class BostonPreparator(BasePreparator):
                           'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
         targets_names = ['MEDV']
         super().__init__(sources, features_names, targets_names, delim_whitespace=True, names=features_names + targets_names)
+
+    @property
+    def name(self) -> str:
+        return "boston"

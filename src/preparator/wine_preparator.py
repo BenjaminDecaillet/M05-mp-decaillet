@@ -27,12 +27,24 @@ class RedWinePreparator(_BaseWinePreparator):
     def __init__(self, source: str):
         super().__init__(source, include_red=True, include_white=False)
 
+    @property
+    def name(self) -> str:
+        return "red-wine"
+
 
 class WhiteWinePreparator(_BaseWinePreparator):
     def __init__(self, source: str):
         super().__init__(source, include_red=False, include_white=True)
 
+    @property
+    def name(self) -> str:
+        return "white-wine"
+
 
 class WinePreparator(_BaseWinePreparator):
     def __init__(self, source: str):
         super().__init__(source, include_red=True, include_white=True)
+
+    @property
+    def name(self) -> str:
+        return "wines"

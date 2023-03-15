@@ -23,12 +23,15 @@ class TestService(unittest.TestCase):
         # TODO: should test with more than 1 preparator, preprocessor, and estimator
 
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
+        self._preparator_mock.name = 'foo'
         arg_parser_mock.preparator_factory.create_many.return_value = [self._preparator_mock]
 
         self._preprocessor_mock = unittest.mock.Mock(spec=Preprocessor)
+        self._preprocessor_mock.name = 'bar'
         arg_parser_mock.preprocessor_factory.create_many.return_value = [self._preprocessor_mock]
 
         self._estimator_mock = unittest.mock.Mock(spec=Estimator)
+        self._estimator_mock.name = 'baz'
         arg_parser_mock.estimator_factory.create_many.return_value = [self._estimator_mock]
 
         self._print_mock = unittest.mock.patch('builtins.print').start()
@@ -49,6 +52,6 @@ class TestService(unittest.TestCase):
                                                            54321)
         self._evaluator_mock.evaluate.assert_called_once()
         self._print_mock.assert_called_once_with(
-            '   dataset preprocessor estimator  evaluation count  MEAN ABSOLUTE ERROR\n'
-            'Preparator Preprocessor Estimator             54321            42.424242'
+            'dataset preprocessor estimator  evaluation count  MEAN ABSOLUTE ERROR\n'
+            '    foo          bar       baz             54321            42.424242'
         )

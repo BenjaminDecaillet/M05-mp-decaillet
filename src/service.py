@@ -36,10 +36,9 @@ class Service:
                 for estimator in estimators:
                     evaluator = Evaluator(preparator, preprocessor, estimator, self._evaluation_count)
                     mean_absolute_errors.append({
-                        # TODO: don't use __class__.__name__
-                        "dataset": preparator.__class__.__name__,
-                        "preprocessor": preprocessor.__class__.__name__,
-                        "estimator": estimator.__class__.__name__,
+                        "dataset": preparator.name,
+                        "preprocessor": preprocessor.name,
+                        "estimator": estimator.name,
                         "evaluation count": self._evaluation_count,
 
                         "MEAN ABSOLUTE ERROR": evaluator.evaluate(),
