@@ -40,11 +40,7 @@ jobs:
           coverage report -m --fail-under=100
 
       - name: Run e2e tests
-        run: |
-          python main.py > output.log 2> error.log
-          [ -f output.log ] || (echo "File 'output.log' does not exist" && exit 1)
-          [ -f error.log ] || (echo "File 'error.log' does not exist" && exit 2)
-          [ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 3)
+        run: .github/workflows/e2e.sh
 
       - name: Build documentation
         run: |
