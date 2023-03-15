@@ -38,7 +38,7 @@ class TestService(unittest.TestCase):
         set_random_seed_mock.assert_called_once_with(12345)
 
     def test_runs(self) -> None:
-        self._evaluator_mock.evaluate.return_value = 42
+        self._evaluator_mock.evaluate.return_value = 42.42424242424242
         service = Service()
         service.run()
         self._evaluator_class_mock.assert_called_once_with(self._preparator_mock,
@@ -46,4 +46,4 @@ class TestService(unittest.TestCase):
                                                            self._estimator_mock,
                                                            54321)
         self._evaluator_mock.evaluate.assert_called_once()
-        self._print_mock.assert_called_once_with('MAE: 42')
+        self._print_mock.assert_called_once_with('MAE: 42.4242')

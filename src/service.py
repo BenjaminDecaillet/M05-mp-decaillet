@@ -28,4 +28,4 @@ class Service:
                               self._estimator_factory.create(),
                               self._evaluation_count)
         mae = evaluator.evaluate()
-        print(f"MAE: {mae}")
+        print(f"MAE: {mae:.4f}")
