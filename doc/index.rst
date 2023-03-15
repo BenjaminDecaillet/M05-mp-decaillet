@@ -16,7 +16,7 @@ of `UniDistance's Master in AI <https://unidistance.ch/en/mathematics-and-comput
    
    quick-start
    architecture
-   unit-tests
+   automated-tests
    documentation
    contributing
 

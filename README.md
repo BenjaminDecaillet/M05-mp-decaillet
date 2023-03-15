@@ -19,8 +19,8 @@ See [doc/quick-start.md](doc/quick-start.md)
 ## Architecture
 See [doc/architecture.rst](doc/architecture.rst)
 
-## Unit-tests and coverage
-See [doc/unit-tests.md](doc/unit-tests.md)
+## Automated tests
+See [doc/automated-tests.md](doc/automated-tests.md)
 
 ## Documentation
 See [doc/documentation.md](doc/documentation.md)
