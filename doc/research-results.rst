@@ -17,11 +17,19 @@ Wine Quality
 
 .. testcode::
 
-   print("TODO")
+   from src import Service
+   Service(["--dataset=wines", "--seed=42"]).run()
 
 .. testoutput::
 
-    TODO
+    dataset preprocessor         estimator  evaluation count  MEAN ABSOLUTE ERROR
+      wines      min-max linear-regression                 3               0.5695
+      wines      min-max     decision-tree                 3               0.5800
+      wines     standard linear-regression                 3               0.5729
+      wines     standard     decision-tree                 3               0.5850
+      wines   polynomial linear-regression                 3               0.5582
+      wines   polynomial     decision-tree                 3               0.5790
+
 
 
 Boston House Prices
@@ -29,8 +37,15 @@ Boston House Prices
 
 .. testcode::
 
-   print("TODO")
+   from src import Service
+   Service(["--dataset=boston", "--seed=42"]).run()
 
 .. testoutput::
 
-    TODO
+    dataset preprocessor         estimator  evaluation count  MEAN ABSOLUTE ERROR
+     boston      min-max linear-regression                 3               3.4924
+     boston      min-max     decision-tree                 3               2.7763
+     boston     standard linear-regression                 3               3.4944
+     boston     standard     decision-tree                 3               3.1092
+     boston   polynomial linear-regression                 3               5.0997
+     boston   polynomial     decision-tree                 3               2.9869

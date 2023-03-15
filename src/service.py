@@ -14,8 +14,8 @@ class Service:
     Usage: ``Service().run()``
     """
 
-    def __init__(self) -> None:
-        arg_parser = ArgParser()
+    def __init__(self, argv=None) -> None:
+        arg_parser = ArgParser(argv=argv)
 
         set_random_seed(arg_parser.seed)
         self._preparator_factory = arg_parser.preparator_factory
