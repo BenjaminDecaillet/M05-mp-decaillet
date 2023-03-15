@@ -14,10 +14,33 @@ IFS=$'\n\t'
 
 echo "Running e2e tests..."
 
-python main.py > output.log 2> error.log
-[ -f output.log ] || (echo "File 'output.log' does not exist" && exit 1)
-[ -f error.log ] || (echo "File 'error.log' does not exist" && exit 2)
-[ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 3)
+python main.py --seed=42 \
+               --dataset=boston \
+               > output.log 2>> error.log
+grep -q "MAE: 3.2029549083280457" output.log || (echo "Output 1 does not match expected output" \
+                                                    && cat output.log \
+                                                    && exit 1)
+
+python main.py --seed=42 \
+               --dataset=wines \
+               --preprocessor-type=min-max \
+               --estimator-type=decision-tree \
+               > output.log 2>> error.log
+grep -q "MAE: 0.5765292734748507" output.log || (echo "Output 2 does not match expected output" \
+                                                    && cat output.log \
+                                                    && exit 2)    
+
+python main.py --seed=42 \
+               --dataset=red-wine \
+               --preprocessor-type=polynomial \
+               --polynomial-preprocessor-kwargs='degree: 3, include_bias: False' \
+               --estimator-type=linear-regression \
+               > output.log 2>> error.log
+grep -q "MAE: 0.9155912646110179" output.log || (echo "Output 3 does not match expected output" \
+                                                    && cat output.log \
+                                                    && exit 3)
+
+[ ! -s error.log ] || (echo "File 'error.log' is not empty" && exit 4)
 
 rm output.log error.log
 
