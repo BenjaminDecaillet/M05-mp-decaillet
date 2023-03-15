@@ -6,7 +6,7 @@ class EstimatorFactory:
     def __init__(self, type: str):
         if type not in self.allowed_types:
             raise ValueError(f"Unknown estimator type '{type}'")
-        self._types = [type]
+        self._types = self.allowed_types if type == "*" else [type]
 
     def create_many(self) -> list[Estimator]:
         estimators = []
@@ -22,4 +22,4 @@ class EstimatorFactory:
     @classmethod
     @property
     def allowed_types(cls) -> list[str]:
-        return ["linear-regression", "decision-tree"]
+        return ["linear-regression", "decision-tree", "*"]

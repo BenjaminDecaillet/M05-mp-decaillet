@@ -26,11 +26,11 @@ class TestArgParser(unittest.TestCase):
         arg_parser = ArgParser(argv)
 
         self.assertEqual(arg_parser.seed, None)
-        self._preparator_factory_class_mock.assert_called_once_with('boston', 'file')
+        self._preparator_factory_class_mock.assert_called_once_with('*', 'file')
         self.assertEqual(arg_parser.preparator_factory, self._preparator_factory_class_mock.return_value)
-        self._preprocessor_factory_class_mock.assert_called_once_with('standard', None)
+        self._preprocessor_factory_class_mock.assert_called_once_with('*', None)
         self.assertEqual(arg_parser.preprocessor_factory, self._preprocessor_factory_class_mock.return_value)
-        self._estimator_factory_class_mock.assert_called_once_with('decision-tree')
+        self._estimator_factory_class_mock.assert_called_once_with('*')
         self.assertEqual(arg_parser.estimator_factory, self._estimator_factory_class_mock.return_value)
         self.assertEqual(arg_parser.evaluation_count, 3)
 

@@ -8,7 +8,7 @@ class PreparatorFactory:
             raise ValueError(f"Unknown preparator type '{type}'")
         if source not in self.allowed_sources:
             raise ValueError(f"Unknown source type '{source}'")
-        self._types = [type]
+        self._types = self.allowed_types if type == "*" else [type]
         self._source = source
 
     def create_many(self) -> list[Preparator]:
@@ -31,7 +31,7 @@ class PreparatorFactory:
     @classmethod
     @property
     def allowed_types(cls) -> list[str]:
-        return ["boston", "red-wine", "white-wine", "wines"]
+        return ["boston", "red-wine", "white-wine", "wines", "*"]
 
     @classmethod
     @property

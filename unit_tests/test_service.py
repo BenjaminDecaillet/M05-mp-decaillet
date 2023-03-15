@@ -20,8 +20,6 @@ class TestService(unittest.TestCase):
         self._evaluator_class_mock = unittest.mock.patch('src.service.Evaluator').start()
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
-        # TODO: should test with more than 1 preparator, preprocessor, and estimator
-
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
         self._preparator_mock.name = 'foo'
         arg_parser_mock.preparator_factory.create_many.return_value = [self._preparator_mock]

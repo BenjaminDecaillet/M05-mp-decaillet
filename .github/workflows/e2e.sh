@@ -19,8 +19,13 @@ python main.py --seed=42 \
                --dataset=boston \
                > output.log 2>> error.log
 diff -q <(cat <<EOF
-dataset preprocessor     estimator  evaluation count  MEAN ABSOLUTE ERROR
- boston     standard decision-tree                 3                3.203
+dataset preprocessor         estimator  evaluation count  MEAN ABSOLUTE ERROR
+ boston      min-max linear-regression                 3               3.4924
+ boston      min-max     decision-tree                 3               2.7763
+ boston     standard linear-regression                 3               3.4944
+ boston     standard     decision-tree                 3               3.1092
+ boston   polynomial linear-regression                 3               5.0997
+ boston   polynomial     decision-tree                 3               2.9869
 EOF
 ) output.log || (echo "Output 1 does not match expected output" \
                                 && cat output.log \
