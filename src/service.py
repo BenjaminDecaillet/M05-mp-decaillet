@@ -6,12 +6,15 @@ from src import ArgParser, Evaluator
 
 
 class Service:
-    """Entry point for the application.
-
-    This class is responsible for creating the necessary objects and inject
+    """
+    Entry point for the application, responsible for creating the necessary objects and inject
     them into the Evaluator class.
 
-    Usage: ``Service().run()``
+    Usage:
+
+    * ``Service().run()``
+    * ``Service(["--dataset=wines", "--seed=42"]).run()``
+    * etc.
     """
 
     def __init__(self, argv=None) -> None:
