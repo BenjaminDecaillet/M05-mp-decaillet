@@ -6,6 +6,7 @@ From command line:
 1. start your virtual environment: `workon m05-mp-decaillet`
    - initial setup described below
 2. run **main.py**: `python main.py`
+   - for additional options, run `python main.py --help`
 
 <!-- -------------------------------------------------- -->
 
