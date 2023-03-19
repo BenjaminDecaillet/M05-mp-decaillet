@@ -11,15 +11,16 @@ of `UniDistance's Master in AI <https://unidistance.ch/en/mathematics-and-comput
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
    
-   architecture
-   apidoc/src
    quick-start
-   ut-coverage-contributing
+   architecture
+   unit-tests
+   documentation
+   contributing
 
-
+   api
 
 Indices and tables
 ==================
