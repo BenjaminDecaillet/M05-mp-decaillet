@@ -1,6 +1,9 @@
 {
     "recommendations": [
         "streetsidesoftware.code-spell-checker",
-        "ms-python.python"
+        "ms-python.python",
+        "yzhang.markdown-all-in-one",
+        "lextudio.restructuredtext",
+        "trond-snekvik.simple-rst"
     ]
 }
