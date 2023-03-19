@@ -44,3 +44,17 @@ Run e2e tests as follows:
     workon m05-mp-decaillet  # activate your virtualenv if necessary
     .github/workflows/e2e.sh
 
+
+Doctest
+-------
+
+This projects uses `sphinx.ext.doctest <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html>`_ to ensure that the
+`documentation <documentation.html>`_ is up-to-date.  
+Doctests are located in folder **doc** (search for ``.. doctest::``).
+
+Run doctest as follows:
+
+.. code:: bash
+
+    workon m05-mp-decaillet  # activate your virtualenv if necessary
+    sphinx-build -b doctest doc sphinx

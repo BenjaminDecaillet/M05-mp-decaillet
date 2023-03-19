@@ -39,6 +39,10 @@ jobs:
           coverage run --source=src -m unittest -v
           coverage report -m --fail-under=100
 
+      - name: Run doctest
+        run: |
+          sphinx-build -b doctest doc sphinx
+
       - name: Run e2e tests
         run: .github/workflows/e2e.sh
 
