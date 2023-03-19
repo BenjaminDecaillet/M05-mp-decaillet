@@ -1,6 +1,6 @@
 from random import seed as set_random_seed
 
-import src  # TODO: use explicit import
+from src import ArgParser, Evaluator
 
 
 class Service:
@@ -13,7 +13,7 @@ class Service:
     """
 
     def __init__(self) -> None:
-        arg_parser = src.ArgParser()
+        arg_parser = ArgParser()
 
         set_random_seed(arg_parser.seed)
         self._preparator_factory = arg_parser.preparator_factory
@@ -23,9 +23,9 @@ class Service:
 
     def run(self) -> None:
         """Run the application."""
-        evaluator = src.Evaluator(self._preparator_factory.create(),
-                                  self._preprocessor_factory.create(),
-                                  self._estimator_factory.create(),
-                                  self._evaluation_count)
+        evaluator = Evaluator(self._preparator_factory.create(),
+                              self._preprocessor_factory.create(),
+                              self._estimator_factory.create(),
+                              self._evaluation_count)
         mae = evaluator.evaluate()
-        print(f"MAE: {mae}")
+        print(f"MAE: {mae:.4f}")
