@@ -37,6 +37,11 @@ class TestMinMaxPreprocessor(unittest.TestCase):
 
             pd.testing.assert_frame_equal(actual, expected)
 
+    def test__name(self):
+        actual = MinMaxPreprocessor().name
+
+        self.assertEqual(actual, "min-max")
+
     def test__fails_if_not_fit(self):
         preprocessor = MinMaxPreprocessor()
         test_features = pd.DataFrame(data={"feature 1": [0, 3, 5]})

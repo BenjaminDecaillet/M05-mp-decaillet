@@ -6,6 +6,11 @@ from src.estimating import LinearRegressionEstimator
 
 
 class TestLinearRegressionEstimator(unittest.TestCase):
+    def test__name(self):
+        actual = LinearRegressionEstimator().name
+
+        self.assertEqual(actual, "linear-regression")
+
     def test__happy_path(self):
         estimator = LinearRegressionEstimator()
 

@@ -16,7 +16,7 @@ class ArgParser:
 
         parser.add_argument("--dataset",
                             help="which dataset to use",
-                            choices=PreparatorFactory.allowed_types, default="boston")
+                            choices=PreparatorFactory.allowed_types, default="*")
 
         parser.add_argument("--dataset-source",
                             help="where to get the dataset from",
@@ -24,7 +24,7 @@ class ArgParser:
 
         parser.add_argument("--preprocessor-type",
                             help="type of preprocessor to use",
-                            choices=PreprocessorFactory.allowed_types, default="standard")
+                            choices=PreprocessorFactory.allowed_types, default="*")
 
         help_polynomial_preprocessor_kwargs = (
             "kwargs to pass to PolynomialFeatures. "
@@ -37,7 +37,7 @@ class ArgParser:
 
         parser.add_argument("--estimator-type",
                             help="type of estimator to use",
-                            choices=EstimatorFactory.allowed_types, default="decision-tree")
+                            choices=EstimatorFactory.allowed_types, default="*")
 
         parser.add_argument("--evaluation-count",
                             help="number of times to evaluate the model",

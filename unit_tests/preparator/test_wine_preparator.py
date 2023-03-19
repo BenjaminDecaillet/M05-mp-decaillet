@@ -21,6 +21,11 @@ class TestWinePreparator(unittest.TestCase):
 
         self.assertIsNotNone(url_preparator)
 
+    def test_name(self):
+        actual = WinePreparator('file').name
+
+        self.assertEqual(actual, 'wines')
+
     def test_load_from_file(self):
         file_preparator = WinePreparator('file')
 

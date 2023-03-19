@@ -21,6 +21,11 @@ class TestBostonPreparator(unittest.TestCase):
 
         self.assertIsNotNone(file_preparator)
 
+    def test_name(self):
+        actual = BostonPreparator('file').name
+
+        self.assertEqual(actual, 'boston')
+
     def test_load_from_file(self):
         file_preparator = BostonPreparator('file')
 

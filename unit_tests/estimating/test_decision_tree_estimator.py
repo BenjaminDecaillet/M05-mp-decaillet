@@ -11,6 +11,11 @@ class TestDecisionTreeEstimator(unittest.TestCase):
         self._randint_patch = unittest.mock.patch("src.estimating.decision_tree_estimator.randint").start()
         self._randint_patch.return_value = 42
 
+    def test__name(self):
+        actual = DecisionTreeEstimator().name
+
+        self.assertEqual(actual, "decision-tree")
+
     def test__happy_path(self):
         estimator = DecisionTreeEstimator()
 

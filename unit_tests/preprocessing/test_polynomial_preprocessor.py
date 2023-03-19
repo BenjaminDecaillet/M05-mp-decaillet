@@ -33,6 +33,11 @@ class TestPolynomialPreprocessor(unittest.TestCase):
 
             pd.testing.assert_frame_equal(actual, expected)
 
+    def test__name(self):
+        actual = PolynomialPreprocessor().name
+
+        self.assertEqual(actual, "polynomial")
+
     def test__happy_path_with_custom_params(self):
         preprocessor = PolynomialPreprocessor(degree=(3, 4), include_bias=False)
 

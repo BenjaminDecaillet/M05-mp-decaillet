@@ -21,6 +21,11 @@ class TestRedWinePreparator(unittest.TestCase):
 
         self.assertIsNotNone(url_preparator)
 
+    def test_name(self):
+        actual = RedWinePreparator('file').name
+
+        self.assertEqual(actual, 'red-wine')
+
     def test_load_from_file(self):
         file_preparator = RedWinePreparator('file')
 

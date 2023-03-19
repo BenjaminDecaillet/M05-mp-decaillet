@@ -21,13 +21,16 @@ class TestService(unittest.TestCase):
         self._evaluator_mock = self._evaluator_class_mock.return_value
 
         self._preparator_mock = unittest.mock.Mock(spec=Preparator)
-        arg_parser_mock.preparator_factory.create.return_value = self._preparator_mock
+        self._preparator_mock.name = 'foo'
+        arg_parser_mock.preparator_factory.create_many.return_value = [self._preparator_mock]
 
         self._preprocessor_mock = unittest.mock.Mock(spec=Preprocessor)
-        arg_parser_mock.preprocessor_factory.create.return_value = self._preprocessor_mock
+        self._preprocessor_mock.name = 'bar'
+        arg_parser_mock.preprocessor_factory.create_many.return_value = [self._preprocessor_mock]
 
         self._estimator_mock = unittest.mock.Mock(spec=Estimator)
-        arg_parser_mock.estimator_factory.create.return_value = self._estimator_mock
+        self._estimator_mock.name = 'baz'
+        arg_parser_mock.estimator_factory.create_many.return_value = [self._estimator_mock]
 
         self._print_mock = unittest.mock.patch('builtins.print').start()
 
@@ -46,4 +49,7 @@ class TestService(unittest.TestCase):
                                                            self._estimator_mock,
                                                            54321)
         self._evaluator_mock.evaluate.assert_called_once()
-        self._print_mock.assert_called_once_with('MAE: 42.4242')
+        self._print_mock.assert_called_once_with(
+            'dataset preprocessor estimator  evaluation count  MEAN ABSOLUTE ERROR\n'
+            '    foo          bar       baz             54321              42.4242'
+        )
