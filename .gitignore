@@ -10,5 +10,7 @@ __pycache__/
 
 sphinx/
 doc/apidoc
+doc/dependencies-licensing.md
 
 .DS_Store
+LICENSES
