@@ -26,8 +26,14 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Install build-dependencies
+        run: pip install -r build-requirements.txt
+
+      - name: Run e2e tests
+        run: .github/workflows/e2e.sh
+
+      - name: Install dev-dependencies
+        run: pip install -r dev-requirements.txt
 
       - name: Enforce linter rules
         run: |
@@ -42,9 +48,6 @@ jobs:
       - name: Run doctest
         run: |
           sphinx-build -b doctest doc sphinx
-
-      - name: Run e2e tests
-        run: .github/workflows/e2e.sh
 
       - name: Build documentation
         run: |
