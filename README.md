@@ -25,6 +25,9 @@ See [doc/automated-tests.md](doc/automated-tests.md)
 ## Documentation
 See [doc/documentation.md](doc/documentation.md)
 
+## Packaging
+See [doc/packaging.md](doc/packaging.md)
+
 ## Contributing
 See [doc/contributing.md](doc/contributing.md)
 

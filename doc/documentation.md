@@ -1,12 +1,12 @@
 # Documentation
 
-This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate its documentation.
+This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) to generate its documentation.
 
 ## Generate sphinx doc locally
-* activate your virtualenv: `workon m05-mp-decaillet`
+* activate your virtualenv: `conda activate m05-mp-decaillet`
 * remove previously auto-generated doc (if any):
   - on OSX and Linux: `rm -rf ./doc/apidoc`
-  - on windows: `rmdir /S/Q ./doc/apidoc`
+  - on windows: `rmdir /S/Q .\doc\apidoc`
 * build doc:
   ```bash
   sphinx-apidoc decm05/ -o ./doc/apidoc --no-toc --separate --module-first

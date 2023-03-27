@@ -7,19 +7,16 @@
         "apidoc",
         "automodule",
         "autopep",
+        "conda",
         "decaillet",
         "Décaillet",
         "endregion",
         "isort",
-        "mkvirtualenv",
         "preparators",
         "preprocessors",
-        "rmvirtualenv",
         "sklearn",
         "stopall",
-        "virtualenv",
-        "virtualenvwrapper",
-        "workon"
+        "virtualenv"
     ],
     "ignoreWords": [],
     "import": []

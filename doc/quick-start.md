@@ -3,10 +3,10 @@
 
 From command line:
 
-1. start your virtual environment: `workon m05-mp-decaillet`
+1. start your virtual environment: `conda activate m05-mp-decaillet`
    - initial setup described below
-2. run **main.py**: `python main.py`
-   - for additional options, run `python main.py --help`
+2. run **main.py**: `decm05`
+   - for additional options, run `decm05 --help` (i.e: `decm05 --dataset=boston --dataset-source=file --preprocessor-type=standard --estimator=decision-tree`)
 
 <!-- -------------------------------------------------- -->
 
@@ -14,31 +14,16 @@ From command line:
 
 ### Setup virtual environment
 
-This quick-start.md assumes a functional Python development environment with:
+This quick-start.md chooses conda as an environment manager and assumes a functional Python development environment:
 
-- [virtual environments](https://docs.python.org/3/library/venv.html)
-- a virtualenv wrapper:
-  - **OSX and Linux**: use package [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
-  - **Windows**: use package [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/)
+- [miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
-The project requires **Python 3.11.1**.
-
-Create the virtualenv as follows:
-
-#### OSX and Linux
+Create the virtual environment as follows:
 
 ```bash
-rmvirtualenv m05-mp-decaillet
-mkvirtualenv m05-mp-decaillet --python=/usr/local/bin/python3.11 -r requirements.txt
+git clone https://github.com/master-ai-batch5/M05-mp-decaillet.git decm05
+cd decm05
+conda env create -f environment.yml
+conda activate m05-mp-decaillet
+pip install --extra-index-url https://test.pypi.org/simple decm05
 ```
-
-_NB: exact path to **python3.11** may vary; locate it with: `which python3.11`_
-
-#### Windows
-
-```winbatch
-rmvirtualenv m05-mp-decaillet
-mkvirtualenv m05-mp-decaillet --python "%userprofile%\AppData\Local\Programs\Python\Python311\python.exe" -r requirements.txt 
-```
-
-_NB: exact path to **python3.11** may vary; locate it with: `where python` (Windows CMD) or `get-command python` (Windows PowerShell)_
