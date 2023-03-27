@@ -20,6 +20,7 @@ of `UniDistance's Master in AI <https://unidistance.ch/en/mathematics-and-comput
    automated-tests
    documentation
    contributing
+   licensing
 
    api
 

@@ -11,4 +11,7 @@ __pycache__/
 sphinx/
 doc/apidoc
 
+3rd-party-licenses.txt
+3rd-party-licenses-list.md
+
 .DS_Store
