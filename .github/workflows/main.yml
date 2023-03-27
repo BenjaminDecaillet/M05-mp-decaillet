@@ -3,6 +3,7 @@ name: main-ci-action
 on:
   push:
     branches: ["**"]
+    tags: "[0-99].[0-99].[0-99]"
   pull_request:
     branches: ["dev"]
 
