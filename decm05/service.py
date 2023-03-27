@@ -2,7 +2,7 @@ from random import seed as set_random_seed
 
 import pandas as pd
 
-from src import ArgParser, Evaluator
+from decm05 import ArgParser, Evaluator
 
 
 class Service:

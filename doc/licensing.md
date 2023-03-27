@@ -12,5 +12,5 @@ This project uses dependencies; you can get their licenses with the following co
 ## Licenses of data
 
 The projects uses two datasets; their licenses are here:
-- [housing](../data/housing.names)
-- [wine](../data/winequality.names)
+- [housing](../decm05/data/housing.names)
+- [wine](../decm05/data/winequality.names)

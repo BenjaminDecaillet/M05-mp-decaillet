@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from src.estimating import LinearRegressionEstimator
+from decm05.estimating import LinearRegressionEstimator
 
 
 class TestLinearRegressionEstimator(unittest.TestCase):

@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pandas as pd
 
-from src.preparator import BostonPreparator
+from decm05.preparator import BostonPreparator
 
 
 class TestBostonPreparator(unittest.TestCase):

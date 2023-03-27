@@ -1,6 +1,6 @@
 import unittest.mock
 
-from src.preparator import PreparatorFactory
+from decm05.preparator import PreparatorFactory
 
 
 class TestPreparatorFactory(unittest.TestCase):
@@ -47,7 +47,7 @@ class TestPreparatorFactory(unittest.TestCase):
     def test__can_create_boston(self):
         preparator_factory = PreparatorFactory("boston", 'file')
 
-        with unittest.mock.patch("src.preparator.BostonPreparator") as mock:
+        with unittest.mock.patch("decm05.preparator.BostonPreparator") as mock:
             actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
@@ -56,7 +56,7 @@ class TestPreparatorFactory(unittest.TestCase):
     def test__can_create_red_wine(self):
         preparator_factory = PreparatorFactory("red-wine", 'file')
 
-        with unittest.mock.patch("src.preparator.RedWinePreparator") as mock:
+        with unittest.mock.patch("decm05.preparator.RedWinePreparator") as mock:
             actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
@@ -65,7 +65,7 @@ class TestPreparatorFactory(unittest.TestCase):
     def test__can_create_white_wine(self):
         preparator_factory = PreparatorFactory("white-wine", 'file')
 
-        with unittest.mock.patch("src.preparator.WhiteWinePreparator") as mock:
+        with unittest.mock.patch("decm05.preparator.WhiteWinePreparator") as mock:
             actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')
@@ -74,7 +74,7 @@ class TestPreparatorFactory(unittest.TestCase):
     def test__can_create_wines(self):
         preparator_factory = PreparatorFactory("wines", 'file')
 
-        with unittest.mock.patch("src.preparator.WinePreparator") as mock:
+        with unittest.mock.patch("decm05.preparator.WinePreparator") as mock:
             actual = preparator_factory.create_many()
 
         mock.assert_called_once_with('file')

@@ -2,7 +2,7 @@ import abc
 
 import pandas as pd
 
-from src.preprocessing import Preprocessor
+from decm05.preprocessing import Preprocessor
 
 
 class SkLearnPreprocessorBase(Preprocessor):

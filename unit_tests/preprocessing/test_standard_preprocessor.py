@@ -2,7 +2,7 @@ import unittest.mock
 
 import pandas as pd
 
-from src.preprocessing import StandardPreprocessor
+from decm05.preprocessing import StandardPreprocessor
 
 
 class TestStandardPreprocessor(unittest.TestCase):
