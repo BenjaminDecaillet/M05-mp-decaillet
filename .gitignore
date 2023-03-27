@@ -14,3 +14,7 @@ doc/dependencies-licensing.md
 
 .DS_Store
 LICENSES
+
+dist/
+.pypirc
+*.egg-info/
