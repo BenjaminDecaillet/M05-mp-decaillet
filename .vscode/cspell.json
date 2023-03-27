@@ -10,10 +10,12 @@
         "conda",
         "decaillet",
         "Décaillet",
+        "decm",
         "endregion",
         "isort",
         "preparators",
         "preprocessors",
+        "pypi",
         "sklearn",
         "stopall",
         "virtualenv"

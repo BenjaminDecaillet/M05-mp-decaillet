@@ -14,4 +14,8 @@ doc/apidoc
 3rd-party-licenses.txt
 3rd-party-licenses-list.md
 
+.pypirc
+dist/
+decm05.egg-info/
+
 .DS_Store

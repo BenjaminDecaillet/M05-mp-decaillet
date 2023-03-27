@@ -26,8 +26,8 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install build-dependencies
-        run: pip install -r build-requirements.txt
+      - name: Install package
+        run: pip install .
 
       - name: Run e2e tests
         run: .github/workflows/e2e.sh
