@@ -1,0 +1,9 @@
+name: m05-mp-decaillet
+channels:
+  - defaults
+dependencies:
+  - python >= 3.11
+  - pip
+  - pip:
+    - -r dev-requirements.txt
+    - -r build-requirements.txt
