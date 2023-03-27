@@ -5,4 +5,5 @@ dependencies:
   - python >= 3.11
   - pip
   - pip:
-    - -r requirements.txt
+      - -r build-requirements.txt
+      - -r dev-requirements.txt

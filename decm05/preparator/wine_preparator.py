@@ -1,3 +1,5 @@
+import pkg_resources
+
 from decm05.preparator import BasePreparator
 
 
@@ -8,9 +10,9 @@ class _BaseWinePreparator(BasePreparator):
         sources = []
         if file_or_url == 'file':
             if include_red:
-                sources.append('decm05/data/winequality-red.csv')
+                sources.append(pkg_resources.resource_filename('decm05', 'data/winequality-red.csv'))
             if include_white:
-                sources.append('decm05/data/winequality-white.csv')
+                sources.append(pkg_resources.resource_filename('decm05', 'data/winequality-white.csv'))
         else:
             if include_red:
                 sources.append('https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv')
