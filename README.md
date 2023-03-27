@@ -28,4 +28,7 @@ See [doc/documentation.md](doc/documentation.md)
 ## Contributing
 See [doc/contributing.md](doc/contributing.md)
 
+## Licensing
+See [doc/licensing.md](doc/licensing.md)
+
 <!-- -------------------------------------------------- -->
