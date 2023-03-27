@@ -12,7 +12,7 @@ class TestArgParser(unittest.TestCase):
 
         self._preparator_factory_class_mock = unittest.mock.patch('decm05.arg_parser.PreparatorFactory').start()
         self._preparator_factory_class_mock.allowed_types = PreparatorFactory.allowed_types
-        self._preparator_factory_class_mock.allowed_sources = PreparatorFactory.allowed_sources
+        self._preparator_factory_class_mock.allowed_file_or_url = PreparatorFactory.allowed_file_or_url
 
         self._preprocessor_factory_class_mock = unittest.mock.patch('decm05.arg_parser.PreprocessorFactory').start()
         self._preprocessor_factory_class_mock.allowed_types = PreprocessorFactory.allowed_types

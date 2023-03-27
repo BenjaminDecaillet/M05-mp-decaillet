@@ -26,7 +26,7 @@ class ArgParser:
 
         parser.add_argument("--dataset-source",
                             help="where to get the dataset from",
-                            choices=PreparatorFactory.allowed_sources, default="file")
+                            choices=PreparatorFactory.allowed_file_or_url, default="file")
 
         parser.add_argument("--preprocessor-type",
                             help="type of preprocessor to use",
