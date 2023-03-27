@@ -13,6 +13,7 @@
         "decm",
         "endregion",
         "isort",
+        "miniconda",
         "preparators",
         "preprocessors",
         "pypi",
