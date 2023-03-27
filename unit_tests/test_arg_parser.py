@@ -1,23 +1,23 @@
 import unittest.mock
 
-from src import ArgParser
-from src.estimating import EstimatorFactory
-from src.preparator import PreparatorFactory
-from src.preprocessing import PreprocessorFactory
+from decm05 import ArgParser
+from decm05.estimating import EstimatorFactory
+from decm05.preparator import PreparatorFactory
+from decm05.preprocessing import PreprocessorFactory
 
 
 class TestArgParser(unittest.TestCase):
     def setUp(self) -> None:
         self.addCleanup(unittest.mock.patch.stopall)
 
-        self._preparator_factory_class_mock = unittest.mock.patch('src.arg_parser.PreparatorFactory').start()
+        self._preparator_factory_class_mock = unittest.mock.patch('decm05.arg_parser.PreparatorFactory').start()
         self._preparator_factory_class_mock.allowed_types = PreparatorFactory.allowed_types
         self._preparator_factory_class_mock.allowed_sources = PreparatorFactory.allowed_sources
 
-        self._preprocessor_factory_class_mock = unittest.mock.patch('src.arg_parser.PreprocessorFactory').start()
+        self._preprocessor_factory_class_mock = unittest.mock.patch('decm05.arg_parser.PreprocessorFactory').start()
         self._preprocessor_factory_class_mock.allowed_types = PreprocessorFactory.allowed_types
 
-        self._estimator_factory_class_mock = unittest.mock.patch('src.arg_parser.EstimatorFactory').start()
+        self._estimator_factory_class_mock = unittest.mock.patch('decm05.arg_parser.EstimatorFactory').start()
         self._estimator_factory_class_mock.allowed_types = EstimatorFactory.allowed_types
 
     def test__has_defaults(self) -> None:

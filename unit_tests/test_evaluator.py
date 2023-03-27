@@ -2,18 +2,18 @@ import unittest.mock
 
 import pandas as pd
 
-from src import Evaluator
-from src.estimating import Estimator
-from src.preparator import Preparator
-from src.preprocessing import Preprocessor
+from decm05 import Evaluator
+from decm05.estimating import Estimator
+from decm05.preparator import Preparator
+from decm05.preprocessing import Preprocessor
 
 
 class TestEvaluator(unittest.TestCase):
     def setUp(self):
         self.addCleanup(unittest.mock.patch.stopall)
-        self._randint_patch = unittest.mock.patch("src.evaluator.randint").start()
-        self._tts_patch = unittest.mock.patch("src.evaluator.train_test_split").start()
-        self._mae_patch = unittest.mock.patch("src.evaluator.mean_absolute_error").start()
+        self._randint_patch = unittest.mock.patch("decm05.evaluator.randint").start()
+        self._tts_patch = unittest.mock.patch("decm05.evaluator.train_test_split").start()
+        self._mae_patch = unittest.mock.patch("decm05.evaluator.mean_absolute_error").start()
         self._mock_preparator = unittest.mock.Mock(spec=Preparator)
         self._mock_preprocessor = unittest.mock.Mock(spec=Preprocessor)
         self._mock_estimator = unittest.mock.Mock(spec=Estimator)

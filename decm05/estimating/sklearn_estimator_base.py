@@ -2,7 +2,7 @@ import abc
 
 import pandas as pd
 
-from src.estimating import Estimator
+from decm05.estimating import Estimator
 
 
 class SkLearnEstimatorBase(Estimator):

@@ -1,5 +1,5 @@
-import src.estimating
-from src.estimating import Estimator
+import decm05.estimating
+from decm05.estimating import Estimator
 
 
 class EstimatorFactory:
@@ -12,10 +12,10 @@ class EstimatorFactory:
         estimators = []
         for type in self._types:
             if type == "linear-regression":
-                estimators.append(src.estimating.LinearRegressionEstimator())
+                estimators.append(decm05.estimating.LinearRegressionEstimator())
                 continue
             if type == "decision-tree":
-                estimators.append(src.estimating.DecisionTreeEstimator())
+                estimators.append(decm05.estimating.DecisionTreeEstimator())
                 continue
         return estimators
 

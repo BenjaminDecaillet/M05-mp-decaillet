@@ -9,7 +9,7 @@ This projects uses [sphinx](https://www.sphinx-doc.org/en/master/) do generate i
   - on windows: `rmdir /S/Q ./doc/apidoc`
 * build doc:
   ```bash
-  sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+  sphinx-apidoc decm05/ -o ./doc/apidoc --no-toc --separate --module-first
   sphinx-build doc sphinx
   ```
 * open generated file **sphinx/index.html** in your web browser

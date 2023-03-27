@@ -1,4 +1,4 @@
-from src.preparator import BasePreparator
+from decm05.preparator import BasePreparator
 
 
 class _BaseWinePreparator(BasePreparator):

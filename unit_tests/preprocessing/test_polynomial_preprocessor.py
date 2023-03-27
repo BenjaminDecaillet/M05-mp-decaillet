@@ -2,7 +2,7 @@ import unittest.mock
 
 import pandas as pd
 
-from src.preprocessing import PolynomialPreprocessor
+from decm05.preprocessing import PolynomialPreprocessor
 
 
 class TestPolynomialPreprocessor(unittest.TestCase):

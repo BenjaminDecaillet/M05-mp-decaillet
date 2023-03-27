@@ -4,9 +4,9 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
-from src.estimating import Estimator
-from src.preparator import Preparator
-from src.preprocessing import Preprocessor
+from decm05.estimating import Estimator
+from decm05.preparator import Preparator
+from decm05.preprocessing import Preprocessor
 
 
 class Evaluator():

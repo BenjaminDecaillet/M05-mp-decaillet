@@ -2,7 +2,7 @@ from random import randint
 
 from sklearn.tree import DecisionTreeRegressor
 
-from src.estimating import SkLearnEstimatorBase
+from decm05.estimating import SkLearnEstimatorBase
 
 
 class DecisionTreeEstimator(SkLearnEstimatorBase):

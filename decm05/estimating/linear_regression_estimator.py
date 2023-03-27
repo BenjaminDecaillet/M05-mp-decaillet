@@ -1,6 +1,6 @@
 from sklearn.linear_model import LinearRegression
 
-from src.estimating import SkLearnEstimatorBase
+from decm05.estimating import SkLearnEstimatorBase
 
 
 class LinearRegressionEstimator(SkLearnEstimatorBase):

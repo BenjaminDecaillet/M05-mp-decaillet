@@ -1,5 +1,5 @@
-import src.preprocessing
-from src.preprocessing import Preprocessor
+import decm05.preprocessing
+from decm05.preprocessing import Preprocessor
 
 
 class PreprocessorFactory:
@@ -19,13 +19,13 @@ class PreprocessorFactory:
         preprocessors = []
         for type in self._types:
             if type == "min-max":
-                preprocessors.append(src.preprocessing.MinMaxPreprocessor())
+                preprocessors.append(decm05.preprocessing.MinMaxPreprocessor())
                 continue
             if type == "standard":
-                preprocessors.append(src.preprocessing.StandardPreprocessor())
+                preprocessors.append(decm05.preprocessing.StandardPreprocessor())
                 continue
             if type == "polynomial":
-                preprocessors.append(src.preprocessing.PolynomialPreprocessor(**self._polynomial_kwargs))
+                preprocessors.append(decm05.preprocessing.PolynomialPreprocessor(**self._polynomial_kwargs))
                 continue
         return preprocessors
 
