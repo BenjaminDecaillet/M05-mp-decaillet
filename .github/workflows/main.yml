@@ -3,6 +3,8 @@ name: main-ci-action
 on:
   push:
     branches: ["**"]
+    tags:
+      - "[0-99]+.[0-99]+.[0-99]+"
   pull_request:
     branches: ["dev"]
 
@@ -64,3 +66,20 @@ jobs:
           build_dir: sphinx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build PyPI (source) package
+        if: success()  &&   startsWith(github.ref, 'refs/tags')
+        shell: bash -l {0}
+        run: |
+          rm -rf ./dist
+          VERSION=$(echo "${{ github.ref }}" | sed -e "s/refs\/tags\///")
+          sed -i "s/version=.*/version='${VERSION}',/" setup.py
+          python setup.py sdist
+          twine check dist/*
+
+      - name: Deploy package to TestPyPI
+        if: success()  &&  startsWith(github.ref, 'refs/tags')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
