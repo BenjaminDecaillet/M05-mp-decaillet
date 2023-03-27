@@ -67,13 +67,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build PyPI (source) package
-        if: success()  &&   startsWith(github.ref, 'refs/tags')
-        shell: bash -l {0}
+      - name: Build PyPI package
         run: |
-          rm -rf ./dist
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+          rm -rf dist decm05.egg-info
           VERSION=$(echo "${{ github.ref }}" | sed -e "s/refs\/tags\///")
+          echo $version
           sed -i "s/version=.*/version='${VERSION}',/" setup.py
+          cat setup.py
           python setup.py sdist
           twine check dist/*
 
