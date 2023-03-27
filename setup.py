@@ -1,3 +1,5 @@
+import os
+
 from setuptools import find_packages, setup
 
 
@@ -6,9 +8,12 @@ def load_requirements(f):
     return [k for k in retval if k and k[0] not in ("#", "-")]
 
 
+version = os.getenv("VERSION")
+assert version, "VERSION environment variable is not set"
+
 setup(
     name="decm05",
-    version="0.0.0",  # TODO: set version
+    version=os.getenv("VERSION"),
     description="Mini project for M05 module of UniDistance's Master in AI",
     url="https://github.com/master-ai-batch5/M05-mp-decaillet",
     authors="Décaillet Valentin, Décaillet Benjamin",

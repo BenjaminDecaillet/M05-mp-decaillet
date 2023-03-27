@@ -20,9 +20,9 @@ This project is deployed to [test.pypi.org as "decm05"](https://test.pypi.org/pr
     conda activate m05-mp-decaillet
     ```
 
-3. update version in setup.py:  
-   ```python
-   version="0.0.0",  # TODO: set version
+3. set an env variable with the package version:
+   ```bash
+   export VERSION=0.0.0
    ```
 
 4. If needed, remove local egg from previous run:
