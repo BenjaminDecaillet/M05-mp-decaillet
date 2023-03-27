@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=load_requirements("build-requirements.txt"),
-    entry_points={"console_scripts": ["decm05 = decm05.service:__run__"]},
+    entry_points={"console_scripts": ["decm05 = decm05.service:run_service"]},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

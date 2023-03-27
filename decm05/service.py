@@ -60,3 +60,7 @@ class Service:
         mean_absolute_errors = mean_absolute_errors.round(4)
 
         print(mean_absolute_errors.to_string(index=False))
+
+
+def run_service():  # pragma: no cover - Entry point for package
+    Service().run()
