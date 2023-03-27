@@ -1,2 +1,2 @@
-include LICENSE README.md requirements.txt data/* 
+include LICENSE README.md build-requirements.txt dev-requirements.txt environment.yml decm05/data/*
 recursive-include doc conf.py *.rst *.md *.ico *.png

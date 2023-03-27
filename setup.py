@@ -8,7 +8,7 @@ def load_requirements(f):
 
 setup(
     name="decm05",
-    version="1.0.53",
+    version="1.1.4",
     description="Mini project for M05 module of UniDistance's Master in AI",
     url="https://github.com/master-ai-batch5/M05-mp-decaillet",
     authors="Décaillet Valentin, Décaillet Benjamin",
@@ -17,7 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=load_requirements("requirements.txt"),
+    install_requires=load_requirements("build-requirements.txt"),
     entry_points={"console_scripts": ["decm05 = decm05.service:__run__"]},
     classifiers=[
         "Development Status :: 4 - Beta",
