@@ -24,9 +24,9 @@ class ArgParser:
                             help="which dataset to use",
                             choices=PreparatorFactory.allowed_types, default="*")
 
-        parser.add_argument("--dataset-source",
+        parser.add_argument("--file-or-url",
                             help="where to get the dataset from",
-                            choices=PreparatorFactory.allowed_sources, default="file")
+                            choices=PreparatorFactory.allowed_file_or_url, default="file")
 
         parser.add_argument("--preprocessor-type",
                             help="type of preprocessor to use",
@@ -52,7 +52,7 @@ class ArgParser:
         args = parser.parse_args(argv)
 
         self._seed = args.seed
-        self._preparator_factory = PreparatorFactory(args.dataset, args.dataset_source)
+        self._preparator_factory = PreparatorFactory(args.dataset, args.file_or_url)
         self._preprocessor_factory = PreprocessorFactory(args.preprocessor_type, args.polynomial_preprocessor_kwargs)
         self._estimator_factory = EstimatorFactory(args.estimator_type)
         self._evaluation_count = args.evaluation_count

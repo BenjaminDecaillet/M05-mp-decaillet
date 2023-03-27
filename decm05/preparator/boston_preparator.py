@@ -4,8 +4,8 @@ from decm05.preparator import BasePreparator
 
 
 class BostonPreparator(BasePreparator):
-    def __init__(self, source: str):
-        if source == 'file':
+    def __init__(self, file_or_url: str):
+        if file_or_url == 'file':
             sources = ['decm05/data/housing.data']
         else:
             sources = ['https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data']
