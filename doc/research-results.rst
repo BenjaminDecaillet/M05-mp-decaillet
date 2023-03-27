@@ -7,8 +7,8 @@ Research results
 
 This project will apply various machine learning techniques to the following datasets:
 
-* Wine Quality (see `winequality.names <https://github.com/master-ai-batch5/M05-mp-decaillet/blob/main/data/housing.names>`_)
-* Boston House Prices (see `housing.names <https://github.com/master-ai-batch5/M05-mp-decaillet/blob/main/data/housing.names>`_)
+* Wine Quality (see `winequality.names <https://github.com/master-ai-batch5/M05-mp-decaillet/blob/main/decm05/data/housing.names>`_)
+* Boston House Prices (see `housing.names <https://github.com/master-ai-batch5/M05-mp-decaillet/blob/main/decm05/data/housing.names>`_)
 
 The results of the analysis are shown below.
 

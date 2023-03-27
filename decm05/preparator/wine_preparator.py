@@ -8,9 +8,9 @@ class _BaseWinePreparator(BasePreparator):
         sources = []
         if source == 'file':
             if include_red:
-                sources.append('data/winequality-red.csv')
+                sources.append('decm05/data/winequality-red.csv')
             if include_white:
-                sources.append('data/winequality-white.csv')
+                sources.append('decm05/data/winequality-white.csv')
         else:
             if include_red:
                 sources.append('https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv')
