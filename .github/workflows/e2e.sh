@@ -15,7 +15,7 @@ IFS=$'\n\t'
 echo "Running e2e tests..."
 
 
-python main.py --seed=42 \
+decm05 --seed=42 \
                --dataset=boston \
                > output.log 2>> error.log
 diff -q <(cat <<EOF
@@ -31,7 +31,7 @@ EOF
                                 && cat output.log \
                                 && exit 1)
 
-python main.py --seed=42 \
+decm05 --seed=42 \
                --dataset=wines \
                --preprocessor-type=min-max \
                --estimator-type=decision-tree \
@@ -44,7 +44,7 @@ EOF
                                 && cat output.log \
                                 && exit 2)
 
-python main.py --seed=42 \
+decm05 --seed=42 \
                --dataset=red-wine \
                --preprocessor-type=polynomial \
                --polynomial-preprocessor-kwargs='degree: 3, include_bias: False' \
