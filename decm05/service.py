@@ -2,7 +2,7 @@ from random import seed as set_random_seed
 
 import pandas as pd
 
-from src import ArgParser, Evaluator
+from decm05 import ArgParser, Evaluator
 
 
 class Service:
@@ -60,3 +60,7 @@ class Service:
         mean_absolute_errors = mean_absolute_errors.round(4)
 
         print(mean_absolute_errors.to_string(index=False))
+
+
+def run_service():  # pragma: no cover - Entry point for package
+    Service().run()

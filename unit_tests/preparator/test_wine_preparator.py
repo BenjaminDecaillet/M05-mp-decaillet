@@ -3,7 +3,7 @@ from unittest.mock import call, patch
 
 import pandas as pd
 
-from src.preparator import WinePreparator
+from decm05.preparator import WinePreparator
 
 
 class TestWinePreparator(unittest.TestCase):

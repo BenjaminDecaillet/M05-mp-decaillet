@@ -1,12 +1,13 @@
-import pandas as pd
+import pkg_resources
 
-from src.preparator import BasePreparator
+from decm05.preparator import BasePreparator
 
 
 class BostonPreparator(BasePreparator):
-    def __init__(self, source: str):
-        if source == 'file':
-            sources = ['data/housing.data']
+    def __init__(self, file_or_url: str):
+        sources = []
+        if file_or_url == 'file':
+            sources.append(pkg_resources.resource_filename('decm05', 'data/housing.data'))
         else:
             sources = ['https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data']
         features_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE',

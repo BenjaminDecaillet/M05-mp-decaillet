@@ -14,7 +14,7 @@ Run unit-tests as follows:
 
 .. code:: bash
 
-    workon m05-mp-decaillet  # activate your virtualenv if necessary
+    conda activate m05-mp-decaillet  # activate your virtualenv if necessary
     python -m unittest discover -v
 
 Coverage
@@ -24,8 +24,8 @@ Run unit tests, run coverage and display coverage report:
 
 .. code:: bash
 
-    workon m05-mp-decaillet  # activate your virtualenv if necessary
-    coverage run --source=src -m unittest -v
+    conda activate m05-mp-decaillet  # activate your virtualenv if necessary
+    coverage run --source=decm05 -m unittest -v
     coverage report -m
 
 
@@ -41,7 +41,7 @@ Run e2e tests as follows:
 
 .. code:: bash
 
-    workon m05-mp-decaillet  # activate your virtualenv if necessary
+    conda activate m05-mp-decaillet  # activate your virtualenv if necessary
     .github/workflows/e2e.sh
 
 
@@ -56,5 +56,5 @@ Run doctest as follows:
 
 .. code:: bash
 
-    workon m05-mp-decaillet  # activate your virtualenv if necessary
+    conda activate m05-mp-decaillet  # activate your virtualenv if necessary
     sphinx-build -b doctest doc sphinx

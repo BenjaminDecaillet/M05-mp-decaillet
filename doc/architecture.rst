@@ -16,11 +16,11 @@ trains a model and evaluates its `Mean Absolute Error (MAE) <https://en.wikipedi
 
 Evaluator
 ---------
-The `Evaluator <apidoc/src.evaluator.html#src.evaluator.Evaluator>`_
+The `Evaluator <apidoc/decm05.evaluator.html#decm05.evaluator.Evaluator>`_
 is an orchestrator that takes
-a `Preparator <apidoc/src.preparator.contract.html#src.preparator.contract.Preparator>`_,
-a `Preprocessor <apidoc/src.preprocessing.contract.html#src.preprocessing.contract.Preprocessor>`_
-and an `Estimator <apidoc/src.estimating.contract.html#src.estimating.contract.Estimator>`_
+a `Preparator <apidoc/decm05.preparator.contract.html#decm05.preparator.contract.Preparator>`_,
+a `Preprocessor <apidoc/decm05.preprocessing.contract.html#decm05.preprocessing.contract.Preprocessor>`_
+and an `Estimator <apidoc/decm05.estimating.contract.html#decm05.estimating.contract.Estimator>`_
 and returns their `MAE <https://en.wikipedia.org/wiki/Mean_absolute_error>`_.
 
 .. image:: img/evaluator.png   
@@ -33,18 +33,18 @@ However, it can be somewhat complex to initialize.
 Service
 -------
 
-To help with the initialization of the `Evaluator`, we provide a `Service <apidoc/src.service.html#src.service.Service>`_, that is
+To help with the initialization of the `Evaluator`, we provide a `Service <apidoc/decm05.service.html#decm05.service.Service>`_, that is
 extremely easy to use (``Service().run()``) and can be used as an entry point.
 
-Behind the scenes, `Service <apidoc/src.service.html#src.service.Service>`_ ensures the initialization of
-an  `Evaluator <apidoc/src.evaluator.html#src.evaluator.Evaluator>`_, via `factories <https://en.wikipedia.org/wiki/Factory_method_pattern>`_ 
+Behind the scenes, `Service <apidoc/decm05.service.html#decm05.service.Service>`_ ensures the initialization of
+an  `Evaluator <apidoc/decm05.evaluator.html#decm05.evaluator.Evaluator>`_, via `factories <https://en.wikipedia.org/wiki/Factory_method_pattern>`_ 
 
 .. image:: img/service.png   
    :alt: service
 
 NB: the above diagram shows the interactions of the following classes:
 
-- `ArgParser <apidoc/src.arg_parser.html#src.arg_parser.ArgParser>`_
-- `PreparatorFactory <apidoc/src.preparator.factory.html#src.preparator.factory.PreparatorFactory>`_
-- `EstimatorFactory <apidoc/src.estimating.factory.html#src.estimating.factory.EstimatorFactory>`_
-- `PreprocessorFactory <apidoc/src.preprocessing.factory.html#src.preprocessing.factory.PreprocessorFactory>`_
+- `ArgParser <apidoc/decm05.arg_parser.html#decm05.arg_parser.ArgParser>`_
+- `PreparatorFactory <apidoc/decm05.preparator.factory.html#decm05.preparator.factory.PreparatorFactory>`_
+- `EstimatorFactory <apidoc/decm05.estimating.factory.html#decm05.estimating.factory.EstimatorFactory>`_
+- `PreprocessorFactory <apidoc/decm05.preprocessing.factory.html#decm05.preprocessing.factory.PreprocessorFactory>`_

@@ -2,13 +2,13 @@ import unittest.mock
 
 import pandas as pd
 
-from src.estimating import DecisionTreeEstimator
+from decm05.estimating import DecisionTreeEstimator
 
 
 class TestDecisionTreeEstimator(unittest.TestCase):
     def setUp(self):
         self.addCleanup(unittest.mock.patch.stopall)
-        self._randint_patch = unittest.mock.patch("src.estimating.decision_tree_estimator.randint").start()
+        self._randint_patch = unittest.mock.patch("decm05.estimating.decision_tree_estimator.randint").start()
         self._randint_patch.return_value = 42
 
     def test__name(self):

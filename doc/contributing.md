@@ -20,7 +20,7 @@ The python code in this project must match [autopep8](https://pypi.org/project/a
 [GitHub actions](https://github.com/master-ai-batch5/M05-mp-decaillet/actions/workflows/main.yml) will enforce these rules.
 
 ### Reformat from command line
-* activate your virtualenv: `workon m05-mp-decaillet`
+* activate your virtualenv: `conda activate m05-mp-decaillet`
 * apply autopep8 to all local files: `autopep8 --max-line-length=120 --recursive . -aaa --in-place`
 * apply isort to all local files: `isort .`
 
