@@ -8,8 +8,7 @@ def load_requirements(f):
     return [k for k in retval if k and k[0] not in ("#", "-")]
 
 
-version = os.getenv("VERSION")
-assert version, "VERSION environment variable is not set"
+version = os.getenv("VERSION", "0.0.0")
 
 setup(
     name="decm05",

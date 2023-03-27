@@ -71,12 +71,10 @@ jobs:
         run: |
           echo "VERSION before"
           echo $VERSION
-          echo "VERSION after"
           if [[ {{ github.ref }} == refs/tags/* ]]; then
-              VERSION={{ github.ref_name }}
-          else
-              VERSION=0.0.0
+              VERSION={{ github.ref_name }}          
           fi
+          echo "VERSION after"
           echo $VERSION
           python setup.py sdist
           twine check dist/*
