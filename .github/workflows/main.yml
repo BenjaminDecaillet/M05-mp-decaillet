@@ -36,7 +36,7 @@ jobs:
 
       - name: Run unit tests and coverage
         run: |
-          coverage run --source=src -m unittest -v
+          coverage run --source=decm05 -m unittest -v
           coverage report -m --fail-under=100
 
       - name: Run doctest
@@ -49,7 +49,7 @@ jobs:
       - name: Build documentation
         run: |
           rm -rf ./doc/apidoc
-          sphinx-apidoc src/ -o ./doc/apidoc --no-toc --separate --module-first
+          sphinx-apidoc decm05/ -o ./doc/apidoc --no-toc --separate --module-first
           sphinx-build doc sphinx
           touch sphinx/.nojekyll  # Dear Github, this is not a jekyll site. Chill.
 

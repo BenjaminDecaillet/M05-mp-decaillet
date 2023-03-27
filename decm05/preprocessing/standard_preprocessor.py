@@ -1,6 +1,6 @@
 from sklearn import preprocessing
 
-from src.preprocessing import SkLearnPreprocessorBase
+from decm05.preprocessing import SkLearnPreprocessorBase
 
 
 class StandardPreprocessor(SkLearnPreprocessorBase):

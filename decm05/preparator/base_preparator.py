@@ -2,7 +2,7 @@ from typing import List
 
 import pandas as pd
 
-from src.preparator import Preparator
+from decm05.preparator import Preparator
 
 
 class BasePreparator(Preparator):

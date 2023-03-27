@@ -25,7 +25,7 @@ Run unit tests, run coverage and display coverage report:
 .. code:: bash
 
     workon m05-mp-decaillet  # activate your virtualenv if necessary
-    coverage run --source=src -m unittest -v
+    coverage run --source=decm05 -m unittest -v
     coverage report -m
 
 

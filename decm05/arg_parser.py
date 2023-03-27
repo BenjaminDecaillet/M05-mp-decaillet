@@ -1,8 +1,8 @@
 import argparse
 
-from src.estimating import EstimatorFactory
-from src.preparator import PreparatorFactory
-from src.preprocessing import PreprocessorFactory
+from decm05.estimating import EstimatorFactory
+from decm05.preparator import PreparatorFactory
+from decm05.preprocessing import PreprocessorFactory
 
 
 class ArgParser:

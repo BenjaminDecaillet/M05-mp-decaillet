@@ -17,7 +17,7 @@ Wine Quality
 
 .. testcode::
 
-   from src import Service
+   from decm05 import Service
    Service(["--dataset=wines", "--seed=42"]).run()
 
 .. testoutput::
@@ -37,7 +37,7 @@ Boston House Prices
 
 .. testcode::
 
-   from src import Service
+   from decm05 import Service
    Service(["--dataset=boston", "--seed=42"]).run()
 
 .. testoutput::

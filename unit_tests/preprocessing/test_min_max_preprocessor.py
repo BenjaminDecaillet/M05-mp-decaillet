@@ -2,7 +2,7 @@ import unittest.mock
 
 import pandas as pd
 
-from src.preprocessing import MinMaxPreprocessor
+from decm05.preprocessing import MinMaxPreprocessor
 
 
 class TestMinMaxPreprocessor(unittest.TestCase):

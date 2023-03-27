@@ -1,6 +1,6 @@
 import unittest.mock
 
-from src.preprocessing import PreprocessorFactory
+from decm05.preprocessing import PreprocessorFactory
 
 
 class TestPreprocessorFactory(unittest.TestCase):
@@ -37,7 +37,7 @@ class TestPreprocessorFactory(unittest.TestCase):
     def test__can_create_min_max(self):
         preprocessor_factory = PreprocessorFactory("min-max")
 
-        with unittest.mock.patch("src.preprocessing.MinMaxPreprocessor") as mock:
+        with unittest.mock.patch("decm05.preprocessing.MinMaxPreprocessor") as mock:
             actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with()
@@ -46,7 +46,7 @@ class TestPreprocessorFactory(unittest.TestCase):
     def test__can_create_standard(self):
         preprocessor_factory = PreprocessorFactory("standard")
 
-        with unittest.mock.patch("src.preprocessing.StandardPreprocessor") as mock:
+        with unittest.mock.patch("decm05.preprocessing.StandardPreprocessor") as mock:
             actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with()
@@ -55,7 +55,7 @@ class TestPreprocessorFactory(unittest.TestCase):
     def test__can_create_polynomial(self):
         preprocessor_factory = PreprocessorFactory("polynomial", {"foo": "bar"})
 
-        with unittest.mock.patch("src.preprocessing.PolynomialPreprocessor") as mock:
+        with unittest.mock.patch("decm05.preprocessing.PolynomialPreprocessor") as mock:
             actual = preprocessor_factory.create_many()
 
         mock.assert_called_once_with(foo="bar")

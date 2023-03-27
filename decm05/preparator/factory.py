@@ -1,5 +1,5 @@
-import src.preparator
-from src.preparator import Preparator
+import decm05.preparator
+from decm05.preparator import Preparator
 
 
 class PreparatorFactory:
@@ -15,16 +15,16 @@ class PreparatorFactory:
         preparators = []
         for type in self._types:
             if type == "boston":
-                preparators.append(src.preparator.BostonPreparator(self._source))
+                preparators.append(decm05.preparator.BostonPreparator(self._source))
                 continue
             if type == "red-wine":
-                preparators.append(src.preparator.RedWinePreparator(self._source))
+                preparators.append(decm05.preparator.RedWinePreparator(self._source))
                 continue
             if type == "white-wine":
-                preparators.append(src.preparator.WhiteWinePreparator(self._source))
+                preparators.append(decm05.preparator.WhiteWinePreparator(self._source))
                 continue
             if type == "wines":
-                preparators.append(src.preparator.WinePreparator(self._source))
+                preparators.append(decm05.preparator.WinePreparator(self._source))
                 continue
         return preparators
 

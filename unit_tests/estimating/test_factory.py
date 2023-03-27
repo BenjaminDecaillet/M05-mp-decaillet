@@ -1,6 +1,6 @@
 import unittest.mock
 
-from src.estimating import EstimatorFactory
+from decm05.estimating import EstimatorFactory
 
 
 class TestEstimatorFactory(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestEstimatorFactory(unittest.TestCase):
     def test__can_create_linear_regression(self):
         estimator_factory = EstimatorFactory("linear-regression")
 
-        with unittest.mock.patch("src.estimating.LinearRegressionEstimator") as mock:
+        with unittest.mock.patch("decm05.estimating.LinearRegressionEstimator") as mock:
             actual = estimator_factory.create_many()
 
         mock.assert_called_once_with()
@@ -28,7 +28,7 @@ class TestEstimatorFactory(unittest.TestCase):
     def test__can_create_decision_tree(self):
         estimator_factory = EstimatorFactory("decision-tree")
 
-        with unittest.mock.patch("src.estimating.DecisionTreeEstimator") as mock:
+        with unittest.mock.patch("decm05.estimating.DecisionTreeEstimator") as mock:
             actual = estimator_factory.create_many()
 
         mock.assert_called_once_with()
