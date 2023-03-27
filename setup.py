@@ -19,6 +19,7 @@ setup(
     package_data={"decm05": ["data/*", "../doc/*.md", "../doc/*.rst", "../doc/img/*", "../build-requirements.txt"]},
     include_package_data=True,
     install_requires=load_requirements("build-requirements.txt"),
+    entry_points={"console_scripts": ["run_decm05 = decm05.service:run_service"]},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
