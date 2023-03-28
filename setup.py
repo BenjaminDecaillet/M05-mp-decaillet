@@ -8,7 +8,7 @@ def load_requirements(f):
 
 setup(
     name="decm05",
-    version="0.0.0",  # TODO: set version
+    version="0.0.0",  # set version for local deployment
     description="Mini project for M05 module of UniDistance's Master in AI",
     url="https://github.com/master-ai-batch5/M05-mp-decaillet",
     authors="Décaillet Valentin, Décaillet Benjamin",
