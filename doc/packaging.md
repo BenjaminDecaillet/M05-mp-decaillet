@@ -2,7 +2,7 @@
 
 This project is deployed to [test.pypi.org as "decm05"](https://test.pypi.org/project/decm05/).
 
-[GitHub actions](https://github.com/master-ai-batch5/M05-mp-decaillet/actions/workflows/main.yml) ensure the automatic deployment of tagged commits. TODO - in fact, not yet...
+[GitHub actions](https://github.com/master-ai-batch5/M05-mp-decaillet/actions/workflows/main.yml) ensure the automatic deployment of tagged commits.
 
 ## Deployment from a local machine
 
@@ -20,9 +20,9 @@ This project is deployed to [test.pypi.org as "decm05"](https://test.pypi.org/pr
     conda activate m05-mp-decaillet
     ```
 
-3. update version in setup.py:  
+3. update version in setup.py:
    ```python
-   version="0.0.0",  # TODO: set version
+   version="0.0.0",  # set version for local deployment
    ```
 
 4. If needed, remove local egg from previous run:
