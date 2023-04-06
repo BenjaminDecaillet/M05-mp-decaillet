@@ -1,0 +1,27 @@
+decm05 package
+==============
+
+.. automodule:: decm05
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decm05.estimating
+   decm05.preparator
+   decm05.preprocessing
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decm05.arg_parser
+   decm05.evaluator
+   decm05.service

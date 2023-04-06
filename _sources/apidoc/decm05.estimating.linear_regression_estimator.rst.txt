@@ -1,0 +1,7 @@
+decm05.estimating.linear\_regression\_estimator module
+======================================================
+
+.. automodule:: decm05.estimating.linear_regression_estimator
+   :members:
+   :undoc-members:
+   :show-inheritance:

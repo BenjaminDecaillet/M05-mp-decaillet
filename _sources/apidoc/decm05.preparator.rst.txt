@@ -1,0 +1,19 @@
+decm05.preparator package
+=========================
+
+.. automodule:: decm05.preparator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decm05.preparator.base_preparator
+   decm05.preparator.boston_preparator
+   decm05.preparator.contract
+   decm05.preparator.factory
+   decm05.preparator.wine_preparator

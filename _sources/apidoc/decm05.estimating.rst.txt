@@ -1,0 +1,19 @@
+decm05.estimating package
+=========================
+
+.. automodule:: decm05.estimating
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decm05.estimating.contract
+   decm05.estimating.decision_tree_estimator
+   decm05.estimating.factory
+   decm05.estimating.linear_regression_estimator
+   decm05.estimating.sklearn_estimator_base

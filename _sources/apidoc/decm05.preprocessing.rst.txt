@@ -1,0 +1,20 @@
+decm05.preprocessing package
+============================
+
+.. automodule:: decm05.preprocessing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decm05.preprocessing.contract
+   decm05.preprocessing.factory
+   decm05.preprocessing.min_max_preprocessor
+   decm05.preprocessing.polynomial_preprocessor
+   decm05.preprocessing.sklearn_preprocessor_base
+   decm05.preprocessing.standard_preprocessor

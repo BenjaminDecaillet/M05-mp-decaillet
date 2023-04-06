@@ -1,0 +1,7 @@
+decm05.preparator.boston\_preparator module
+===========================================
+
+.. automodule:: decm05.preparator.boston_preparator
+   :members:
+   :undoc-members:
+   :show-inheritance:

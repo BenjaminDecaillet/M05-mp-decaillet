@@ -1,0 +1,7 @@
+decm05.preprocessing.standard\_preprocessor module
+==================================================
+
+.. automodule:: decm05.preprocessing.standard_preprocessor
+   :members:
+   :undoc-members:
+   :show-inheritance:

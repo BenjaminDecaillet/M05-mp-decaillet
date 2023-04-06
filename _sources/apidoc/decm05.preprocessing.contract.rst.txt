@@ -1,0 +1,7 @@
+decm05.preprocessing.contract module
+====================================
+
+.. automodule:: decm05.preprocessing.contract
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+decm05.preparator.base\_preparator module
+=========================================
+
+.. automodule:: decm05.preparator.base_preparator
+   :members:
+   :undoc-members:
+   :show-inheritance:

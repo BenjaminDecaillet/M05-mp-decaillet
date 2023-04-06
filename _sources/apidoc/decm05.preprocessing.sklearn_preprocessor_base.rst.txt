@@ -1,0 +1,7 @@
+decm05.preprocessing.sklearn\_preprocessor\_base module
+=======================================================
+
+.. automodule:: decm05.preprocessing.sklearn_preprocessor_base
+   :members:
+   :undoc-members:
+   :show-inheritance:

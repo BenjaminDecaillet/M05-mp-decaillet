@@ -1,0 +1,7 @@
+decm05.evaluator module
+=======================
+
+.. automodule:: decm05.evaluator
+   :members:
+   :undoc-members:
+   :show-inheritance:

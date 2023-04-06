@@ -1,0 +1,7 @@
+decm05.preparator.contract module
+=================================
+
+.. automodule:: decm05.preparator.contract
+   :members:
+   :undoc-members:
+   :show-inheritance:

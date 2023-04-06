@@ -1,0 +1,7 @@
+decm05.preprocessing.factory module
+===================================
+
+.. automodule:: decm05.preprocessing.factory
+   :members:
+   :undoc-members:
+   :show-inheritance:

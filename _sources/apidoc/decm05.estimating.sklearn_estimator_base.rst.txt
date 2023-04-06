@@ -1,0 +1,7 @@
+decm05.estimating.sklearn\_estimator\_base module
+=================================================
+
+.. automodule:: decm05.estimating.sklearn_estimator_base
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+decm05.preprocessing.min\_max\_preprocessor module
+==================================================
+
+.. automodule:: decm05.preprocessing.min_max_preprocessor
+   :members:
+   :undoc-members:
+   :show-inheritance:

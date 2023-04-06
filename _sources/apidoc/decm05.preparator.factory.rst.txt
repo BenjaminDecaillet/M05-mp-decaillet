@@ -1,0 +1,7 @@
+decm05.preparator.factory module
+================================
+
+.. automodule:: decm05.preparator.factory
+   :members:
+   :undoc-members:
+   :show-inheritance:

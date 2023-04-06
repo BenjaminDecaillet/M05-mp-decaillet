@@ -1,0 +1,7 @@
+decm05.estimating.decision\_tree\_estimator module
+==================================================
+
+.. automodule:: decm05.estimating.decision_tree_estimator
+   :members:
+   :undoc-members:
+   :show-inheritance:
